@@ -1,0 +1,161 @@
+/*
+# Front-end Style Guide
+
+## Layout
+
+- Mobile: 375px
+- Desktop: 1440px
+
+## Colors
+
+### Primary
+
+- Red: hsl(0, 78%, 62%)
+- Cyan: hsl(180, 62%, 55%)
+- Orange: hsl(34, 97%, 64%)
+- Blue: hsl(212, 86%, 64%)
+
+### Neutral
+
+- Very Dark Blue: hsl(234, 12%, 34%)
+- Grayish Blue: hsl(229, 6%, 66%)
+- Very Light Gray: hsl(0, 0%, 98%)
+
+## Typography
+
+### Body Copy
+
+- Font size: 15px
+
+### Fonts
+
+- Family: [Poppins](https://fonts.google.com/specimen/Poppins)
+- Weights: 200, 400, 600
+*/
+
+:root {
+    --clr-primary-red: hsl(0, 78%, 62%);
+    --clr-primary-cyan: hsl(180, 62%, 55%);
+    --clr-primary-orange: hsl(34, 97%, 64%);
+    --clr-primary-blue: hsl(212, 86%, 64%);
+
+    --clr-neutral-000: hsl(0, 0%, 100%);
+    --clr-neutral-100: hsl(0, 0%, 98%);
+    --clr-neutral-400: hsl(229, 6%, 66%);
+    --clr-neutral-700: hsl(234, 12%, 34%);
+
+    --ff-base: "Poppins", sans-serif;
+
+    /*TODO: Convert to rem*/
+    --fs-small: 13px;
+    --fs-regular: 15px;
+    --fs-large: 19px;
+    --fs-larger: 24px;
+
+    --fw-light: 200;
+    --fw-regular: 400;
+    --fw-bold: 600;
+}
+
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: grid;
+}
+
+footer {
+    margin-top: auto;
+    padding: 0.4rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+}
+
+p {
+    max-width: 65ch;
+    margin-block: 0.5em;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+body {
+    font-size: var(--fs-regular);
+    font-weight: var(--fw-regular);
+    font-family: var(--ff-base);
+    color: var(--clr-neutral-400);
+    line-height: 1.6;
+    background-color: var(--clr-neutral-100);
+}
+
+main {
+    margin-inline: auto;
+    padding: 5rem 2rem;
+}
+
+main header {
+    text-align: center;
+
+    margin-bottom: 4rem;
+    display: grid;
+    gap: 0.4rem;
+}
+
+.title {
+    color: var(--clr-neutral-700);
+    font-size: var(--fs-larger);
+    font-weight: var(--fw-light);
+    line-height: 1.6;
+}
+
+.title b {
+    font-weight: var(--fw-bold);
+}
+
+.cards {
+    display: grid;
+    gap: 1rem;
+}
+
+.card {
+    padding: 1.75rem;
+    background-color: var(--clr-neutral-000);
+    border-radius: 7px;
+    box-shadow: 0 5px 15px -5px #ccc;
+    border: 0;
+    border-top: 4px solid #666;
+}
+
+.card-title {
+    font-size: var(--fs-large);
+    font-weight: var(--fw-bold);
+    color: var(--clr-neutral-700);
+    line-height: 1.6;
+}
+
+.card p {
+    font-size: var(--fs-small);
+    margin-bottom: 2rem;
+}
+
+.card img {
+    height: 60px;
+    margin-left: auto;
+}
+
+.card-supervisor { border-color: var(--clr-primary-cyan); }
+.card-team-builder { border-color: var(--clr-primary-red); }
+.card-karma { border-color: var(--clr-primary-orange); }
+.card-calculator { border-color: var(--clr-primary-blue); }
