@@ -1,43 +1,43 @@
 /*
-# Front-end Style Guide
+    # Front-end Style Guide
 
-## Layout
+    ## Layout
 
-- Mobile: 375px
-- Desktop: 1440px
+    - Mobile: 375px
+    - Desktop: 1440px
 
-## Colors
+    ## Colors
 
-### Primary
+    ### Primary
 
-- Red: hsl(0, 78%, 62%)
-- Cyan: hsl(180, 62%, 55%)
-- Orange: hsl(34, 97%, 64%)
-- Blue: hsl(212, 86%, 64%)
+    - Red: hsl(0, 78%, 62%)
+    - Cyan: hsl(180, 62%, 55%)
+    - Orange: hsl(34, 97%, 64%)
+    - Blue: hsl(212, 86%, 64%)
 
-### Neutral
+    ### Neutral
 
-- Very Dark Blue: hsl(234, 12%, 34%)
-- Grayish Blue: hsl(229, 6%, 66%)
-- Very Light Gray: hsl(0, 0%, 98%)
+    - Very Dark Blue: hsl(234, 12%, 34%)
+    - Grayish Blue: hsl(229, 6%, 66%)
+    - Very Light Gray: hsl(0, 0%, 98%)
 
-## Typography
+    ## Typography
 
-### Body Copy
+    ### Body Copy
 
-- Font size: 15px
+    - Font size: 15px
 
-### Fonts
+    ### Fonts
 
-- Family: [Poppins](https://fonts.google.com/specimen/Poppins)
-- Weights: 200, 400, 600
+    - Family: [Poppins](https://fonts.google.com/specimen/Poppins)
+    - Weights: 200, 400, 600
 */
 
 :root {
-    --clr-primary-red: hsl(0, 78%, 62%);
-    --clr-primary-cyan: hsl(180, 62%, 55%);
-    --clr-primary-orange: hsl(34, 97%, 64%);
-    --clr-primary-blue: hsl(212, 86%, 64%);
+    --clr-primary-red:    hsl(0,   78%, 62%);
+    --clr-primary-cyan:   hsl(180, 62%, 55%);
+    --clr-primary-orange: hsl(34,  97%, 64%);
+    --clr-primary-blue:   hsl(212, 86%, 64%);
 
     --clr-neutral-000: hsl(0, 0%, 100%);
     --clr-neutral-100: hsl(0, 0%, 98%);
@@ -46,17 +46,15 @@
 
     --ff-base: "Poppins", sans-serif;
 
-    /*TODO: Convert to rem*/
-    --fs-small: 13px;
-    --fs-regular: 15px;
-    --fs-large: 19px;
-    --fs-larger: 24px;
+    --fs-small:   0.8125rem; /* 13px; */
+    --fs-regular: 0.9375rem; /* 15px  */
+    --fs-large:   1.188rem;  /* 19px; */
+    --fs-larger:  1.5rem;    /* 24px; */
 
-    --fw-light: 200;
+    --fw-light:   200;
     --fw-regular: 400;
-    --fw-bold: 600;
+    --fw-bold:    600;
 }
-
 
 *, *::before, *::after {
     box-sizing: border-box;
@@ -66,10 +64,6 @@
 
 html, body {
     height: 100%;
-}
-
-body {
-    display: grid;
 }
 
 footer {
@@ -82,7 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-    max-width: 65ch;
+    max-width: 56ch;
     margin-block: 0.5em;
 }
 
@@ -105,7 +99,7 @@ main {
     padding: 5rem 2rem;
 }
 
-main header {
+.main-header {
     text-align: center;
 
     margin-bottom: 4rem;
@@ -113,29 +107,39 @@ main header {
     gap: 0.4rem;
 }
 
-.title {
+.main-header p {
+    margin-inline: auto;
+}
+
+.main-header .title {
     color: var(--clr-neutral-700);
     font-size: var(--fs-larger);
     font-weight: var(--fw-light);
     line-height: 1.6;
 }
 
-.title b {
+.main-header__title b {
     font-weight: var(--fw-bold);
 }
 
 .cards {
+    --cards-gap: 2rem;
+    --card-maxw: 350px;
+
+    max-width: var(--card-maxw);
+    margin-inline: auto;
+
     display: grid;
-    gap: 1rem;
+    gap: var(--cards-gap);
 }
 
 .card {
+    max-width: var(--card-maxw);
     padding: 1.75rem;
     background-color: var(--clr-neutral-000);
     border-radius: 7px;
-    box-shadow: 0 5px 15px -5px #ccc;
-    border: 0;
-    border-top: 4px solid #666;
+    box-shadow: 0 8px 20px -5px #ccc;
+    border-top: 4px solid var(--clr-neutral-000);
 }
 
 .card-title {
@@ -159,3 +163,36 @@ main header {
 .card-team-builder { border-color: var(--clr-primary-red); }
 .card-karma { border-color: var(--clr-primary-orange); }
 .card-calculator { border-color: var(--clr-primary-blue); }
+
+@media (min-width: 620px) {
+    :root {
+        --fs-larger: 2.25rem;
+    }
+
+    .main-header .title {
+        line-height: 1.4;
+    }
+
+    .cards {
+        max-width: calc((var(--card-maxw) * 2) + var(--cards-gap));
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 920px) {
+    .cards {
+        max-width: 1110px;
+
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "....  two   ...."
+            "one   two   four"
+            "one   three four"
+            "....  three ....";
+    }
+
+    .card-supervisor { grid-area: one; }
+    .card-team-builder { grid-area: two; }
+    .card-karma { grid-area: three; }
+    .card-calculator { grid-area: four; }
+}
