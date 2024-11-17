@@ -7,15 +7,56 @@
     <meta name="description" content="Main page for Front-end Mentor projects">
     <meta name="author" content="Pedro Frohmut">
 
+    <title>FEM - Main page</title>
+
     <link href="style.css" rel="stylesheet"/>
 
-    <title>FEM - Main page</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Fira Code-->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
+    <!--Roboto-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <!--Noto Serif-->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>Front-end Mentor - List of projects</h1>
+    <header class="main-header">
+      <h1 class="main-title">Portifolio: Pedro Frohmut</h1>
+    </header>
 
-    <a href="./product-preview-card-component-main/index.html">Product Preview Card</a>
+    <header class="fem-header">
+      <h2 class="fem-title">Front-end Mentor - List of projects</h2>
+    </header>
 
-    <a href="./four-card-feature-section-master/index.html">Four Cards Section</a>
+    <div class="project-cards">
+
+      <div class="project-card">
+        <img src="./images/product-preview-card-preview.jpg" alt="">
+        <div class="project-content">
+          <a class="project-link" href="./product-preview-card-component-main/index.html">Product Preview Card</a>
+          <p class="project-rank">1 - Newbie</p>
+          <p class="project-description">
+            Product Preview card that can be showed alone or in advertising or in a product card list
+          </p>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="./images/four-cards-section-preview.jpg" alt="">
+        <div class="project-content">
+          <a class="project-link" href="./four-card-feature-section-master/index.html">Four Cards Section</a>
+          <p class="project-rank">1 - Newbie</p>
+          <p class="project-description">
+            Simple home page for a tecnology that has some description in a header a later
+            has the main characteristcs highlighted in cards that are displayed in different
+            layouts based on the screen width
+          </p>
+        </div>
+      </div>
+
+    </div> <!-- Project Cards -->
+
   </body>
 </html>
