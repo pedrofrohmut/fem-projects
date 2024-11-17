@@ -67,8 +67,7 @@ html, body {
 }
 
 footer {
-    margin-top: auto;
-    padding: 0.4rem;
+    padding: 1.2rem 0.4rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -167,6 +166,10 @@ main {
 @media (min-width: 620px) {
     :root {
         --fs-larger: 2.25rem;
+    }
+
+    main {
+        padding: 5rem 0;
     }
 
     .main-header .title {

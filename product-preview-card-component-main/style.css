@@ -77,9 +77,6 @@ body {
     color: var(--clr-neutral-800);
     line-height: 1.7;
     background-color: var(--clr-primary-light);
-
-    display: grid;
-    grid-template-rows: auto max-content;
 }
 
 picture, img {

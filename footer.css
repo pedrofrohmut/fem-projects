@@ -1,0 +1,9 @@
+body {
+    display: grid;
+    grid-template-rows: auto max-content;
+}
+
+footer {
+    padding: 0.5rem 1.4rem;
+}
+
