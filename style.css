@@ -10,9 +10,9 @@
 
     --clr-accent-yellow: hsl(30, 100%, 60%);
 
-    --ff-sans: "Roboto", sans-serif;
     --ff-serif: "Noto Serif", serif;
-    --ff-mono: "Fira Code", monospace;
+    /*--ff-sans: "Roboto", sans-serif;*/
+    /*--ff-mono: "Fira Code", monospace;*/
 
     --fw-light: 300;
     --fw-regular: 400;
