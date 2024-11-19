@@ -39,7 +39,7 @@
 /*
     TODOS:
 
-    [ ] - Mobile: Style the radio and checkbox inputs
+    [X] - Mobile: Style the radio and checkbox inputs
     [ ] - Desktop layout
     [ ] - Desktop: focus and active state
     [ ] - Desktop: hover state
@@ -54,7 +54,8 @@
     --clr-primary-red: hsl(0, 66%, 54%);
 
     --clr-neutral-000: hsl(0, 0%, 100%);
-     --clr-neutral-400: hsl(160, 4%, 59%);
+    --clr-neutral-100: hsl(150, 3%, 86%);
+    --clr-neutral-400: hsl(160, 4%, 59%);
     --clr-neutral-500: hsl(186, 15%, 59%);
     --clr-neutral-900: hsl(187, 24%, 22%);
 
@@ -160,11 +161,6 @@ textarea {
     gap: 0.4rem;
 }
 
-.flex-input-group {
-    display: flex;
-    gap: 1.0rem;
-}
-
 .radio-wrapper {
     margin-top: 0.6rem;
 
@@ -172,11 +168,13 @@ textarea {
     gap: 1.0rem;
 }
 
-.radio-input-group {
+.surrounded-label {
     padding: 0.8em 1.2em;
     border: 1px solid var(--clr-neutral-400);
     border-radius: var(--border-radius);
+}
 
+.radio-input-group {
     display: flex;
     gap: 0.8rem;
 }
@@ -185,11 +183,94 @@ textarea {
     font-size: var(--fs-500);
 }
 
-.error-message {
-    display: none;
-    color: var(--clr-primary-red);
-    font-size: var(--fs-300);
+
+.custom-radio {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border: 2px solid var(--clr-neutral-400);
+    border-radius: 100%;
 }
+
+.custom-radio:checked {
+    border: 0;
+}
+
+/* Using an image to make a custom radio input */
+
+.custom-radio:checked::before {
+    content: url("./assets/images/icon-radio-selected.svg");
+    /* To fix the outline */
+    display: block;
+    height: 20px;
+    width: 20px;
+}
+
+/* Using ::before to make a custom radio input */
+
+/*.custom-radio:checked {*/
+/*    border-color: var(--clr-primary-green);*/
+/*}*/
+/**/
+/*.custom-radio:checked::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 2px;*/
+/*    left: 2px;*/
+/*    height: 14px;*/
+/*    width: 14px;*/
+/*    border-radius: 100%;*/
+/*    background-color: var(--clr-primary-green);*/
+/*}*/
+
+.surrounded-label:has(input[type="radio"]:checked) {
+    border-color: var(--clr-primary-green);
+    background-color: var(--clr-primary-light-green);
+}
+
+.checkbox-group {
+    display: grid;
+    gap: 1.2rem;
+    grid-template-columns: max-content auto;
+    align-items: center;
+}
+
+.custom-checkbox {
+    appearance: none;
+    height: 18px;
+    width: 18px;
+    border: 2px solid var(--clr-neutral-400);
+}
+
+.custom-checkbox:checked {
+    border: 0;
+}
+
+/* Using an image to make a custom checkbox input */
+
+.custom-checkbox:checked::before {
+    content: url("./assets/images/icon-checkbox-check.svg");
+    /* To fix the outline */
+    display: block;
+    height: 18px;
+    width: 18px;
+}
+
+/* Using ::before to make a custom checkbox input */
+
+/*.custom-checkbox:checked {*/
+/*    border-color: var(--clr-primary-green);*/
+/*}*/
+/**/
+/*.custom-checkbox:checked::before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    top: 2px;*/
+/*    left: 2px;*/
+/*    height: 12px;*/
+/*    width: 12px;*/
+/*    background-color: var(--clr-primary-green);*/
+/*}*/
 
 button {
     padding: 1.2rem 1.6rem;
@@ -205,3 +286,10 @@ button {
     background-color: var(--clr-primary-green);
     color: var(--clr-neutral-000);
 }
+
+.error-message {
+    display: none;
+    color: var(--clr-primary-red);
+    font-size: var(--fs-300);
+}
+

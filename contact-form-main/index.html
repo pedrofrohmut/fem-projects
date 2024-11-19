@@ -51,18 +51,17 @@
         <div class="input-group">
           <label for="query-type" class="label-required">Query Type</label>
           <div class="radio-wrapper">
-            <div class="radio-input-group">
-              <input id="query1" type="radio" name="query-type">
-              <label for="query1" class="surrounded-label col-half">
-                General Enquiry
-              </label>
-            </div>
-            <div class="radio-input-group">
-              <input id="query2" type="radio" name="query-type">
-              <label for="query2" class="surrounded-label col-half">
-                Support Request
-              </label>
-            </div>
+
+            <label for="query1" class="surrounded-label radio-input-group col-half radio-label">
+              <input id="query1" type="radio" name="query-type" class="custom-radio">
+              General Enquiry
+            </label>
+
+            <label for="query2" class="surrounded-label radio-input-group col-half radio-label">
+              <input id="query2" type="radio" name="query-type" class="custom-radio">
+              Support Request
+            </label>
+
           </div>
           <div class="error-message">Please select a query type</div>
         </div>
@@ -76,8 +75,8 @@
 
         <!--Consent-->
         <div class="input-group">
-          <div class="flex-input-group">
-            <input id="consent" type="checkbox" name="">
+          <div class="checkbox-group">
+            <input id="consent" type="checkbox" name="" class="custom-checkbox">
             <label for="consent" class="label-required">
               I consent to being contacted by the team
             </label>
