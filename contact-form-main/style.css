@@ -36,7 +36,172 @@
     - Weights: 400, 700
 */
 
+/*
+    TODOS:
+
+    [ ] - Mobile: Style the radio and checkbox inputs
+    [ ] - Desktop layout
+    [ ] - Desktop: focus and active state
+    [ ] - Desktop: hover state
+    [ ] - Desktop/Mobile: error state
+    [ ] - Desktop/Mobile: Success message
+
+*/
+
+:root {
+    --clr-primary-green: hsl(169, 82%, 27%);
+    --clr-primary-light-green: hsl(148, 38%, 91%);
+    --clr-primary-red: hsl(0, 66%, 54%);
+
+    --clr-neutral-000: hsl(0, 0%, 100%);
+     --clr-neutral-400: hsl(160, 4%, 59%);
+    --clr-neutral-500: hsl(186, 15%, 59%);
+    --clr-neutral-900: hsl(187, 24%, 22%);
+
+    --fs-regular: 1rem;
+
+    --fs-200: 0.8125rem; /* 13px */
+    --fs-300:  0.875rem; /* 14px */
+    --fs-400:      1rem; /* 16px */
+    --fs-500:  1.125rem; /* 18px */
+    --fs-800:      2rem; /* 32px */
+
+    --ff-base: "Karla", sans-serif;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+image {
+    display: block;
+    max-width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+}
+
+p {
+    max-width: 56ch;
+    margin-block: 0.5em;
+}
+
+body {
+    font-family: var(--ff-base);
+    font-size: var(--fs-regular);
+    font-weight: var(--fw-regular);
+    color: var(--clr-neutral-900);
+    line-height: 1.3;
+    background-color: var(--clr-primary-light-green);
+}
+
+.form-wrapper {
+    border-radius: 0.8rem;
+    margin: 2rem auto;
+    width: calc(100% - 2rem);
+    padding: 1.6rem 1.5rem;
+    background-color: var(--clr-neutral-000);
+}
+
+.form-title {
+    font-size: var(--fs-800);
+
+    margin-bottom: 2.0rem;
+}
+
+form {
+    --border-radius: 0.4rem;
+
+    display: grid;
+    gap: 1.5rem;
+}
+
+label {
+    display: block;
+}
+
+.label-required::after {
+    content: " *";
+    color: var(--clr-primary-green);
+    font-size: var(--fs-500);
+    line-height: 1;
+}
+
+/* Some elements dont inherit font on body by default */
+input, textarea, button {
+    font: inherit;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    padding: 0.8em 1.2em;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--clr-neutral-400);
+}
+
+.input-group {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.flex-input-group {
+    display: flex;
+    gap: 1.0rem;
+}
+
+.radio-wrapper {
+    margin-top: 0.6rem;
+
+    display: grid;
+    gap: 1.0rem;
+}
+
+.radio-input-group {
+    padding: 0.8em 1.2em;
+    border: 1px solid var(--clr-neutral-400);
+    border-radius: var(--border-radius);
+
+    display: flex;
+    gap: 0.8rem;
+}
+
+.radio-input-group label {
+    font-size: var(--fs-500);
+}
 
 .error-message {
     display: none;
+    color: var(--clr-primary-red);
+    font-size: var(--fs-300);
+}
+
+button {
+    padding: 1.2rem 1.6rem;
+    border-radius: var(--border-radius);
+    border: 0;
+    background-color: var(--clr-neutral-900);
+    color: var(--clr-neutral-000);
+    font-size: var(--fs-500);
+    font-weight: var(--fw-bold);
+}
+
+.primary-button {
+    background-color: var(--clr-primary-green);
+    color: var(--clr-neutral-000);
 }
