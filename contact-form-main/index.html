@@ -24,7 +24,7 @@
     <div class="form-wrapper">
       <h2 class="form-title">Contact Us</h2>
 
-      <form>
+      <form class="contact-form grid-md-2col">
         <!--First-->
         <div class="input-group col-half">
           <label for="first" class="label-required">First Name</label>
@@ -40,7 +40,7 @@
         </div>
 
         <!--E-mail-->
-        <div class="input-group">
+        <div class="input-group col-full">
           <label for="email" class="label-required">Email Address</label>
           <input id="email" type="email" name="email">
           <div class="error-message">Please enter a valid email address</div>
@@ -48,9 +48,9 @@
         </div>
 
         <!--Query Type-->
-        <div class="input-group">
+        <div class="input-group col-full">
           <label for="query-type" class="label-required">Query Type</label>
-          <div class="radio-wrapper">
+          <div class="radio-wrapper grid-md-2col">
 
             <label for="query1" class="surrounded-label radio-input-group col-half radio-label">
               <input id="query1" type="radio" name="query-type" class="custom-radio">
@@ -67,14 +67,14 @@
         </div>
 
         <!--Message-->
-        <div class="input-group">
+        <div class="input-group col-full">
           <label for="message" class="label-required">Message</label>
           <textarea id="message" name="message" cols="30" rows="10"></textarea>
           <div class="error-message">This field is required</div>
         </div>
 
         <!--Consent-->
-        <div class="input-group">
+        <div class="input-group col-full">
           <div class="checkbox-group">
             <input id="consent" type="checkbox" name="" class="custom-checkbox">
             <label for="consent" class="label-required">
@@ -84,7 +84,7 @@
           <div class="error-message">To submit this form, please consent to being contacted</div>
         </div>
 
-        <button class="primary-button">Submit</button>
+        <button class="primary-button col-full">Submit</button>
       </form>
     </div>
 

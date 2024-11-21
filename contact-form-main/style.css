@@ -50,6 +50,7 @@
 
 :root {
     --clr-primary-green: hsl(169, 82%, 27%);
+    --clr-primary-green-dark: hsl(171, 83%, 14%);
     --clr-primary-light-green: hsl(148, 38%, 91%);
     --clr-primary-red: hsl(0, 66%, 54%);
 
@@ -109,7 +110,8 @@ body {
 .form-wrapper {
     border-radius: 0.8rem;
     margin: 2rem auto;
-    width: calc(100% - 2rem);
+    /*width: calc(100% - 2rem);*/
+    width: min(735px, 100% - 2rem);
     padding: 1.6rem 1.5rem;
     background-color: var(--clr-neutral-000);
 }
@@ -120,7 +122,7 @@ body {
     margin-bottom: 2.0rem;
 }
 
-form {
+.contact-form {
     --border-radius: 0.4rem;
 
     display: grid;
@@ -148,6 +150,12 @@ input[type="email"] {
     width: 100%;
 }
 
+input[type="text"]:hover, input[type="text"]:focus-visible,
+input[type="email"]:hover, input[type="email"]:focus-visible,
+textarea:hover, textarea:focus-visible {
+    border-color: var(--clr-primary-green);
+}
+
 input[type="text"],
 input[type="email"],
 textarea {
@@ -172,6 +180,10 @@ textarea {
     padding: 0.8em 1.2em;
     border: 1px solid var(--clr-neutral-400);
     border-radius: var(--border-radius);
+}
+
+.surrounded-label:hover, .surrounded-label:focus-visible {
+    border-color: var(--clr-primary-green);
 }
 
 .radio-input-group {
@@ -287,9 +299,35 @@ button {
     color: var(--clr-neutral-000);
 }
 
+.primary-button:hover,
+.primary-button:focus-visible {
+    background-color: var(--clr-primary-green-dark);
+}
+
 .error-message {
     display: none;
     color: var(--clr-primary-red);
     font-size: var(--fs-300);
 }
 
+/*@media (min-width: 376px)*/
+/*{*/
+/*    .form-wrapper {*/
+/*        width: min(735px, 100% - 2rem);*/
+/*        max-width: 735px;*/
+/*    }*/
+/*}*/
+
+@media (min-width: 768px)
+{
+    .grid-md-2col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .col-full {
+        grid-column: span 2;
+    }
+
+    .col-half {}
+}
