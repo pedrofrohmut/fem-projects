@@ -50,7 +50,8 @@
 
 :root {
     --clr-primary-green: hsl(169, 82%, 27%);
-    --clr-primary-green-dark: hsl(171, 83%, 14%);
+    --clr-primary-green-dark: hsl(185, 24%, 22%);
+    --clr-primary-green-darker: hsl(171, 83%, 14%);
     --clr-primary-light-green: hsl(148, 38%, 91%);
     --clr-primary-red: hsl(0, 66%, 54%);
 
@@ -58,6 +59,7 @@
     --clr-neutral-100: hsl(150, 3%, 86%);
     --clr-neutral-400: hsl(160, 4%, 59%);
     --clr-neutral-500: hsl(186, 15%, 59%);
+    --clr-neutral-600: hsl(186, 49%, 43%);
     --clr-neutral-900: hsl(187, 24%, 22%);
 
     --fs-regular: 1rem;
@@ -72,6 +74,9 @@
 
     --fw-regular: 400;
     --fw-bold: 700;
+
+    --content-width: min(735px, 100% - 2rem);
+    --content-width: min(450px, 100% - 2rem);
 }
 
 *, *::before, *::after {
@@ -284,7 +289,7 @@ textarea {
 /*    background-color: var(--clr-primary-green);*/
 /*}*/
 
-button {
+.button {
     padding: 1.2rem 1.6rem;
     border-radius: var(--border-radius);
     border: 0;
@@ -301,8 +306,32 @@ button {
 
 .primary-button:hover,
 .primary-button:focus-visible {
-    background-color: var(--clr-primary-green-dark);
+    background-color: var(--clr-primary-green-darker);
 }
+
+
+/* Toggle Button */
+
+.toggle-wrapper {
+    width: var(--content-width);
+    margin: 0.3rem auto;
+}
+
+.toggle-button {
+    padding: 0.2rem 0.6rem;
+    background-color: var(--clr-neutral-500);
+    color: var(--clr-neutral-900);
+    border-radius: 0.3rem;
+    font-size: var(--fs-300);
+}
+
+.toggle-button:hover,
+.toggle-button:focus-visible {
+    background-color: var(--clr-neutral-600);
+    color: var(--clr-neutral-900);
+}
+
+/* Error State */
 
 .error-message {
     display: none;
@@ -310,13 +339,42 @@ button {
     font-size: var(--fs-300);
 }
 
-/*@media (min-width: 376px)*/
-/*{*/
-/*    .form-wrapper {*/
-/*        width: min(735px, 100% - 2rem);*/
-/*        max-width: 735px;*/
-/*    }*/
-/*}*/
+.has-error .error-message {
+    display: block;
+}
+
+.has-error input[type="text"],
+.has-error input[type="email"],
+.has-error textarea {
+    border-color: var(--clr-primary-red);
+}
+
+/* Success State */
+
+.success-message {
+    max-width: var(--content-width-small);
+    margin: 1rem auto;
+    padding: 1.75rem;
+    border-radius: 0.8rem;
+    background-color: var(--clr-primary-green-dark);
+    color: var(--clr-neutral-000);
+
+    display: none;
+    gap: 0.4rem;
+    margin-bottom: -3rem;
+    z-index: 1;
+}
+
+.is-success .success-message {
+    display: grid;
+}
+
+.success-title {
+    font-size: var(--fs-500);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
 
 @media (min-width: 768px)
 {
@@ -328,6 +386,4 @@ button {
     .col-full {
         grid-column: span 2;
     }
-
-    .col-half {}
 }

@@ -18,13 +18,25 @@
   <title>Frontend Mentor | Contact form</title>
 </head>
 <body>
+  <div class="toggle-wrapper">
+    <button id="toggle-error-button" class="toggle-button">Toggle Error</button>
+    <button id="toggle-success-button" class="toggle-button">Toggle Success</button>
+  </div>
+
+  <div class="success-message">
+    <h2 class="success-title">
+      <img src="./assets/images/icon-success-check.svg" alt="">
+      Message Sent!
+    </h2>
+    <p>Thanks for completing the form. We'll be in touch soon!</p>
+  </div>
 
   <main>
 
     <div class="form-wrapper">
       <h2 class="form-title">Contact Us</h2>
 
-      <form class="contact-form grid-md-2col">
+      <form id="contact-form" class="contact-form grid-md-2col">
         <!--First-->
         <div class="input-group col-half">
           <label for="first" class="label-required">First Name</label>
@@ -84,17 +96,17 @@
           <div class="error-message">To submit this form, please consent to being contacted</div>
         </div>
 
-        <button class="primary-button col-full">Submit</button>
+        <button class="button primary-button col-full">Submit</button>
       </form>
     </div>
 
   </main>
 
-  <!--Message Sent!-->
-  <!--Thanks for completing the form. We'll be in touch soon!-->
-
   <footer>
     <a href="../index.html">Back to main</a>
   </footer>
+
+  <!--Custom scripts-->
+  <script src="./main.js"></script>
 </body>
 </html>
