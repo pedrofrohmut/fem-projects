@@ -25,7 +25,7 @@
     --fs-extra-large: 1.75rem;
 
     --fs-title: 1.6rem;
-    --fs-title-large: 2.0rem;
+    --fs-title-large: 1.8rem;
 }
 
 *, *::before, *::after {
@@ -35,11 +35,12 @@
 }
 
 html, body {
-    height: 100%;
+    min-height: 100vh;
 }
 
 body {
-    --main-container-maxw: calc((380px * 3) + 4rem);
+    /*--main-container-maxw: calc((380px * 3) + 4rem);*/
+    --main-container-maxw: 380px;
 
     background-color: var(--clr-neutral-800);
     color: var(--clr-neutral-200);
@@ -47,6 +48,7 @@ body {
     font-size: var(--fs-regular);
     font-weight: var(--fw-regular);
     line-height: 1.4;
+    padding-bottom: 4rem;
 }
 
 a {
@@ -64,13 +66,20 @@ img {
 
 .main-header, .fem-header {
     margin-inline: auto;
-    max-width: var(--main-container-maxw);
-    padding: 2rem 0;
+    width: min(100% - 2rem, var(--main-container-maxw));
+    padding: 1.8rem 0 1.2rem;
 }
 
 .main-title {
     font-size: var(--fs-title-large);
     font-weight: var(--fw-regular);
+    font-weight: 300;
+}
+
+.main-title strong {
+    margin-top: 0.6rem;
+    font-weight: 600;
+    display: block;
 }
 
 .fem-title {
@@ -79,18 +88,20 @@ img {
 }
 
 .project-cards {
-    margin-inline: auto;
-    max-width: var(--main-container-maxw);
-
-    display: flex;
-    gap: 2rem;
-}
-
-.project-card {
     --card-maxw: 380px;
     --border-radius: 0.8rem;
     --border-width: 2px;
+    --cards-gap: 2rem;
 
+    margin-inline: auto;
+    width: min(100% - 2.4rem, var(--main-container-maxw));
+
+    display: grid;
+    justify-content: center;
+    gap: var(--cards-gap);
+}
+
+.project-card {
     max-width: var(--card-maxw);
     border-radius: calc(var(--border-radius) + 8px);
     border: var(--border-width) solid var(--clr-neutral-600);
@@ -149,4 +160,40 @@ img {
 
 .project-rank {
     color: var(--clr-neutral-600);
+}
+
+/*
+    card-minw = 320px
+    cards-gap = 2rem
+ */
+@media (min-width: calc((320px * 2) + 2rem)) {
+    body {
+        --main-container-maxw: calc((380px * 2) + 2rem);
+    }
+
+    .main-title strong {
+        display: inline;
+    }
+
+    .project-cards {
+        /* 2 columns */
+        max-width: calc((var(--card-maxw) * 2) + var(--cards-gap));
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/*
+    card-minw = 320px
+    cards-gap = 2rem
+ */
+@media (min-width: calc((320px * 3) + 4rem)) {
+    body {
+        --main-container-maxw: calc((380px * 3) + 4rem);
+    }
+
+    .project-cards {
+        /* 3 columns */
+        max-width: calc((var(--card-maxw) * 3) + (var(--cards-gap) * 2));
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

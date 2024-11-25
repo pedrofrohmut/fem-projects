@@ -326,6 +326,7 @@ textarea {
 
     background-color: #555555;
     color: #ffffff;
+    border: 0;
 }
 
 .toggle-button:hover,
