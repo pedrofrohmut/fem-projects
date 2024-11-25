@@ -36,18 +36,6 @@
     - Weights: 400, 700
 */
 
-/*
-    TODOS:
-
-    [X] - Mobile: Style the radio and checkbox inputs
-    [X] - Desktop layout
-    [X] - Desktop: focus and active state
-    [X] - Desktop: hover state
-    [X] - Desktop/Mobile: error state
-    [X] - Desktop/Mobile: Success message
-
-*/
-
 :root {
     --clr-primary-green: hsl(169, 82%, 27%);
     --clr-primary-green-dark: hsl(185, 24%, 22%);
@@ -132,7 +120,8 @@ body {
 .contact-form {
     --border-radius: 0.4rem;
 
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
 }
 
@@ -152,11 +141,6 @@ input, textarea, button {
     font: inherit;
 }
 
-input[type="text"],
-input[type="email"] {
-    width: 100%;
-}
-
 input[type="text"]:hover, input[type="text"]:focus-visible,
 input[type="email"]:hover, input[type="email"]:focus-visible,
 textarea:hover, textarea:focus-visible {
@@ -166,6 +150,7 @@ textarea:hover, textarea:focus-visible {
 input[type="text"],
 input[type="email"],
 textarea {
+    width: 100%;
     padding: 0.8em 1.2em;
     border-radius: var(--border-radius);
     border: 1px solid var(--clr-neutral-400);
