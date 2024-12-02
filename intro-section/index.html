@@ -20,52 +20,71 @@
 <body>
 
   <main>
-    <header class="navbar">
+    <header id="navbar" class="navbar">
       <div class="navbar__start">
         <h1 class="visually-hidden">snap</h1>
         <img class="navbar__logo" src="./images/logo.svg" alt="snap logo">
       </div>
 
-      <nav class="navbar__menu">
+      <nav id="navbar-menu" class="navbar__menu">
+        <button id="menu-close" class="menu-toggler">
+          <img class="navbar__close" src="./images/icon-close-menu.svg" alt="close menu icon">
+        </button>
+
         <ul class="menu-start">
-          <li>Features</li>
-          <ul class="sub-nav">
+          <li id="menu-features" class="menu-parent">Features</li>
+          <ul class="subnav">
             <li class="with-icon">
               <img src="./images/icon-todo.svg" alt="">
-              <span>Todo List</span>
+              <a href="#">Todo List</a>
             </li>
             <li class="with-icon">
               <img src="./images/icon-calendar.svg" alt="">
-              <span>Calendar</span>
+              <a href="#">Calendar</a>
             </li>
             <li class="with-icon">
               <img src="./images/icon-reminders.svg" alt="">
-              Reminders
+              <a href="#">Reminders</a>
             </li>
             <li class="with-icon">
               <img src="./images/icon-planning.svg" alt="">
-              <span>Planning</span>
+              <a href="#">Planning</a>
             </li>
           </ul>
-          <li>Company</li>
-          <ul class="sub-nav">
-            <li>History</li>
-            <li>Our Team</li>
-            <li>Blog</li>
+          <li id="menu-company" class="menu-parent">Company</li>
+          <ul class="subnav">
+            <li>
+              <a href="#">History</a>
+            </li>
+            <li>
+              <a href="#">Our Team</a>
+            </li>
+            <li>
+              <a href="#">Blog</a>
+            </li>
           </ul>
-          <li>Careers</li>
-          <li>About</li>
+          <li>
+            <a href="#">Careers</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
         </ul>
 
         <ul class="menu-end">
-          <li class="">Login</li>
-          <li class="nav-highlight">Register</li>
+          <li>
+            <a href="#">Login</a>
+          </li>
+          <li class="nav-highlight">
+            <a href="#">Register</a>
+          </li>
         </ul>
       </nav>
 
       <div class="navbar__end">
-        <img class="navbar__open" src="./images/icon-menu.svg" alt="open menu icon">
-        <img class="navbar__close" src="./images/icon-close-menu.svg" alt="close menu icon">
+        <button id="menu-open" class="menu-toggler">
+          <img class="navbar__open" src="./images/icon-menu.svg" alt="open menu icon">
+        </button>
       </div>
     </header>
 
@@ -73,6 +92,7 @@
       <picture>
         <img src="./images/image-hero-mobile.png" alt="">
       </picture>
+
       <div class="hero__content">
         <h2 class="hero__title">Make remote work</h2>
         <p>
@@ -83,6 +103,7 @@
           <a class="hero__cta-link" href="">Learn more</a>
         </div>
       </div>
+
       <ul class="hero__clients">
         <li><img src="./images/client-databiz.svg" alt=""></li>
         <li><img src="./images/client-audiophile.svg" alt=""></li>
@@ -96,5 +117,6 @@
     <a href="../index.html">Back to main</a>
   </footer>
 
+  <script type="text/javascript" src="./main.js"></script>
 </body>
 </html>

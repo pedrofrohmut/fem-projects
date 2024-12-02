@@ -78,19 +78,127 @@ picture, img {
     white-space: nowrap;
 }
 
+/* Navbar */
+
 .navbar {
     padding: 1.4rem 1rem;
+    position: relative;
+
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
+
+.navbar__logo {
+    position: relative;
+    top: 3px;
+}
+
+.menu-toggler {
+    padding: 0.4rem;
+    border: 0;
+}
+
+/* Navbar Menu */
 
 .navbar__menu {
+    --menuw: 240px;
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    min-height: 100vh;
+    width: var(--menuw);
+    background-color: var(--clr-neutral-100);
+    padding: 3.3rem 1.5rem 0;
+}
+
+.navbar__menu::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: calc(100% - var(--menuw));
+    background-color: rgba(0 0 0 / 0.7);
+}
+
+.navbar__menu ul {
+    list-style: none;
+}
+
+.navbar__menu li {
+    line-height: 1;
+    margin-block: 1.7rem;
+    font-weight: var(--fw-regular);
+    font-size: var(--fs-400);
+}
+
+.navbar__menu a {
+    color: var(--clr-neutral-500);
+    text-decoration: none;
+}
+
+.navbar__menu .menu-parent::after {
+    content: url("./images/icon-arrow-down.svg");
+    padding-left: 1rem;
+}
+
+.navbar__menu .with-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.navbar__menu .with-icon img {
+    height: 20px;
+    position: relative;
+    top: -2px;
+}
+
+.navbar__menu .subnav {
+    padding-left: 2rem;
     display: none;
 }
 
-.navbar__close {
-    display: none;
+.navbar__menu .navbar__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.6rem;
 }
+
+
+/* Navbar End */
+
+.navbar .menu-end {
+    text-align: center;
+}
+
+.navbar .menu-end li {
+    margin-block: 1.0rem;
+}
+
+.navbar .nav-highlight {
+    border: 1px solid var(--clr-neutral-500);
+    border-radius: 1.0rem;
+    padding: 0.9rem 0 0.7rem;
+}
+
+/* Open / Close Navbar Menu */
+
+.navbar.open .navbar__menu {
+    display: block;
+}
+
+.menu-parent.open::after {
+    content: url("./images/icon-arrow-up.svg");
+}
+
+.menu-parent.open + .subnav {
+    display: block;
+}
+
+/* Hero Section */
 
 .hero__content {
     padding: 3rem 0.8rem;
@@ -121,6 +229,8 @@ picture, img {
     padding: 0.8rem 1.4rem 0.6rem;
     border-radius: 0.9rem;
 }
+
+/* Hero Client List */
 
 .hero__clients {
     list-style: none;
