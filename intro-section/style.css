@@ -206,6 +206,12 @@ picture, img {
 
 /* Hero Section */
 
+.hero {
+    --hero-maxw: 500px;
+    width: min(100%, var(--hero-maxw));
+    margin-inline: auto;
+}
+
 .hero__content {
     padding: 3rem 0.8rem;
     text-align: center;
@@ -217,12 +223,13 @@ picture, img {
 .hero__title {
     color: var(--clr-neutral-900);
     font-weight: var(--fw-bold);
-    font-size: var(--fs-title);
     line-height: 1;
+    font-size: clamp(36px, 6vw, 80px);
 }
 
 .hero p {
     font-size: var(--fs-small);
+    max-width: 46ch;
 }
 
 .hero__cta-link {
@@ -264,8 +271,8 @@ picture, img {
 }
 
 /*
-    Max content 1363px
-    hero maxw 1143px
+    Maxw navbar 1363px
+    Maxw hero   1143px
  */
 @media (min-width: 768px)
 {
@@ -279,23 +286,28 @@ picture, img {
     }
 
     .hero {
-        width: min(100% - 2rem, 1142px);
+        --hero-maxw: 1142px;
         margin-inline: auto;
 
         display: grid;
         grid-template-areas: "content image";
-        grid-template-columns: 1fr 0.8fr;
+        grid-template-columns: 1fr auto;
         align-items: center;
-        gap: 8rem;
+        gap: clamp(0.5rem, 6vw, 8rem);
     }
 
     .hero picture {
         grid-area: image;
+        width: clamp(320px, 42vw, 460px);
     }
 
     .hero__content {
         grid-area: content;
         text-align: left;
+    }
+
+    .hero__title {
+        max-width: 11ch;
     }
 
     .hero__content p {
