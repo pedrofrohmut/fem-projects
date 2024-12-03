@@ -32,40 +32,47 @@
         </button>
 
         <ul class="menu-start">
-          <li id="menu-features" class="menu-parent">Features</li>
-          <ul class="subnav">
-            <li class="with-icon">
-              <img src="./images/icon-todo.svg" alt="">
-              <a href="#">Todo List</a>
-            </li>
-            <li class="with-icon">
-              <img src="./images/icon-calendar.svg" alt="">
-              <a href="#">Calendar</a>
-            </li>
-            <li class="with-icon">
-              <img src="./images/icon-reminders.svg" alt="">
-              <a href="#">Reminders</a>
-            </li>
-            <li class="with-icon">
-              <img src="./images/icon-planning.svg" alt="">
-              <a href="#">Planning</a>
-            </li>
-          </ul>
-          <li id="menu-company" class="menu-parent">Company</li>
-          <ul class="subnav">
-            <li>
-              <a href="#">History</a>
-            </li>
-            <li>
-              <a href="#">Our Team</a>
-            </li>
-            <li>
-              <a href="#">Blog</a>
-            </li>
-          </ul>
+          <div class="menu-group">
+            <li id="menu-features" class="menu-parent">Features</li>
+            <ul class="subnav">
+              <li class="with-icon">
+                <img src="./images/icon-todo.svg" alt="">
+                <a href="#">Todo List</a>
+              </li>
+              <li class="with-icon">
+                <img src="./images/icon-calendar.svg" alt="">
+                <a href="#">Calendar</a>
+              </li>
+              <li class="with-icon">
+                <img src="./images/icon-reminders.svg" alt="">
+                <a href="#">Reminders</a>
+              </li>
+              <li class="with-icon">
+                <img src="./images/icon-planning.svg" alt="">
+                <a href="#">Planning</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="menu-group">
+            <li id="menu-company" class="menu-parent">Company</li>
+            <ul class="subnav">
+              <li>
+                <a href="#">History</a>
+              </li>
+              <li>
+                <a href="#">Our Team</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+            </ul>
+          </div>
+
           <li>
             <a href="#">Careers</a>
           </li>
+
           <li>
             <a href="#">About</a>
           </li>
@@ -90,26 +97,29 @@
 
     <section class="hero">
       <picture>
+        <source srcset="./images/image-hero-desktop.png" media="(min-width: 430px)" />
         <img src="./images/image-hero-mobile.png" alt="">
       </picture>
 
       <div class="hero__content">
         <h2 class="hero__title">Make remote work</h2>
+
         <p>
           Get your team in sync, no matter your location. Streamline processes,
           create team rituals, and watch productivity soar.
         </p>
+
         <div>
           <a class="hero__cta-link" href="">Learn more</a>
         </div>
-      </div>
 
-      <ul class="hero__clients">
-        <li><img src="./images/client-databiz.svg" alt=""></li>
-        <li><img src="./images/client-audiophile.svg" alt=""></li>
-        <li><img src="./images/client-meet.svg" alt=""></li>
-        <li><img src="./images/client-maker.svg" alt=""></li>
-      </ul>
+        <ul class="hero__clients">
+          <li><img src="./images/client-databiz.svg" alt=""></li>
+          <li><img src="./images/client-audiophile.svg" alt=""></li>
+          <li><img src="./images/client-meet.svg" alt=""></li>
+          <li><img src="./images/client-maker.svg" alt=""></li>
+        </ul>
+      </div>
     </section>
   </main>
 
