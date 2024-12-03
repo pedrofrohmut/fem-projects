@@ -12,5 +12,14 @@ menuClose.addEventListener("click", () => {
 })
 
 menuParents.forEach(menuParent => menuParent.addEventListener("click", () => {
+    // Toggle clicked
     menuParent.classList.toggle("open")
+
+    // Close others
+    const parents = Array.of(menuParents)[0] // Convert to array of li elem
+    parents.forEach(parent => {
+        if (parent !== menuParent) {
+            parent.classList.remove("open")
+        }
+    })
 }))
