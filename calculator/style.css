@@ -1,0 +1,339 @@
+/*
+    # Front-end Style Guide
+
+    ## Layout
+
+    The designs were created to the following widths:
+
+    - Mobile: 375px
+    - Desktop: 1440px
+
+    ## Colors
+
+    ### Theme 1
+
+    #### Backgrounds
+
+    - Very dark desaturated blue (main background): hsl(222, 26%, 31%)
+    - Very dark desaturated blue (toggle background, keypad background): hsl(223, 31%, 20%)
+    - Very dark desaturated blue (screen background): hsl(224, 36%, 15%)
+
+    #### Keys
+
+    - Desaturated dark blue (key background): hsl(225, 21%, 49%)
+    - Desaturated dark blue (key shadow): hsl(224, 28%, 35%)
+
+    - Red (key background, toggle): hsl(6, 63%, 50%)
+    - Dark red (key shadow): hsl(6, 70%, 34%)
+
+    - Light grayish orange (key background): hsl(30, 25%, 89%)
+    - Grayish orange (key shadow): hsl(28, 16%, 65%)
+
+    #### Text
+
+    - Very dark grayish blue: hsl(221, 14%, 31%)
+    - White: hsl(0, 0%, 100%)
+
+    ### Theme 2
+
+    #### Backgrounds
+
+    - Light gray (main background): hsl(0, 0%, 90%)
+    - Grayish red (toggle background, keypad background): hsl(0, 5%, 81%)
+    - Very light gray (screen background): hsl(0, 0%, 93%)
+
+    #### Keys
+
+    - Dark moderate cyan (key background): hsl(185, 42%, 37%)
+    - Very dark cyan (key shadow): hsl(185, 58%, 25%)
+
+    - Orange (key background, toggle): hsl(25, 98%, 40%)
+    - Dark orange (key shadow): hsl(25, 99%, 27%)
+
+    - Light grayish yellow (key background): hsl(45, 7%, 89%)
+    - Dark grayish orange (key shadow): hsl(35, 11%, 61%)
+
+    #### Text
+
+    - Very dark grayish yellow: hsl(60, 10%, 19%)
+    - White (text): hsl(0, 0%, 100%)
+
+    ### Theme 3
+
+    #### Backgrounds
+
+    - Very dark violet (main background): hsl(268, 75%, 9%)
+    - Very dark violet (toggle background, keypad background, screen background): hsl(268, 71%, 12%)
+
+    #### Keys
+
+    - Dark violet (key background): hsl(281, 89%, 26%)
+    - Vivid magenta (key shadow): hsl(285, 91%, 52%)
+
+    - Pure cyan (key background, toggle): hsl(176, 100%, 44%)
+    - Soft cyan (key shadow): hsl(177, 92%, 70%)
+
+    - Very dark violet (key background): hsl(268, 47%, 21%)
+    - Dark magenta (key shadow): hsl(290, 70%, 36%)
+
+    #### Text
+
+    - Light yellow: hsl(52, 100%, 62%)
+    - Very dark blue: hsl(198, 20%, 13%)
+    - White (text): hsl(0, 0%, 100%)
+
+    ## Typography
+
+    ### Body Copy
+
+    - Font size (numbers): 32px
+
+    ### Font
+
+    - Family: [League Spartan](https://fonts.google.com/specimen/League+Spartan)
+    - Weights: 700
+*/
+
+:root {
+    --ff-base: "League Spartan", sans-serif;
+
+    --fs-extra-smaller: 0.75rem;
+    --fs-smaller: 1.3rem;
+    --fs-small: 1.8rem;
+    --fs-regular: 2rem;
+    --fs-large: 2.6rem;
+
+    --fw-regular: 700;
+
+    --border-radius-small: 0.35rem;
+    --border-radius: 0.55rem;
+
+    /* THEME 1 - Default theme */
+
+    /* Background */
+    --clr-bg-main: hsl(222, 26%, 31%);
+    --clr-bg-keypad: hsl(223, 31%, 20%);
+    --clr-bg-screen: hsl(224, 36%, 15%);
+
+    /* Keys */
+    --clr-key-secondary: hsl(225, 21%, 49%);
+    --clr-key-secondary-shadow: hsl(224, 28%, 35%);
+
+    --clr-key-primary: hsl(6, 63%, 50%);
+    --clr-key-primary-shadow: hsl(6, 70%, 34%);
+
+    --clr-key-default: hsl(30, 25%, 89%);
+    --clr-key-default-shadow: hsl(28, 16%, 65%);
+
+    /* Text */
+    --clr-text-main: hsl(221, 14%, 31%);
+    --clr-text-secondary: hsl(0, 0%, 100%);
+    --clr-text-extra: hsl(0, 0%, 100%);
+    --clr-text-inverted: hsl(0, 0%, 100%);
+}
+
+/*:root:has(#theme-1:checked) {*/
+/*}*/
+
+:root:has(#theme-2:checked) {
+    /* THEME 2 - Light theme */
+
+    /* Background */
+    --clr-bg-main: hsl(0, 0%, 90%);
+    --clr-bg-keypad: hsl(0, 5%, 81%);
+    --clr-bg-screen: hsl(0, 0%, 93%);
+
+    /* Keys */
+    --clr-key-secondary: hsl(185, 42%, 37%);
+    --clr-key-secondary-shadow: hsl(185, 58%, 25%);
+
+    --clr-key-primary: hsl(25, 98%, 40%);
+    --clr-key-primary-shadow: hsl(25, 99%, 27%);
+
+    --clr-key-default: hsl(45, 7%, 89%);
+    --clr-key-default-shadow: hsl(35, 11%, 61%);
+
+    /* Text */
+    --clr-text-main: hsl(60, 10%, 19%);
+    --clr-text-secondary: hsl(0, 0%, 100%);
+    --clr-text-extra: hsl(0, 0%, 100%);
+    --clr-text-inverted: hsl(60, 10%, 19%);
+}
+
+:root:has(#theme-3:checked) {
+    /* THEME 3 - Dark theme */
+
+    /* Background */
+    --clr-bg-main: hsl(268, 75%, 9%);
+    --clr-bg-keypad: hsl(268, 71%, 12%);
+    --clr-bg-screen: hsl(268, 71%, 12%);
+
+    /* Keys */
+    --clr-key-secondary: hsl(281, 89%, 26%);
+    --clr-key-secondary-shadow: hsl(285, 91%, 52%);
+
+    --clr-key-primary: hsl(176, 100%, 44%);
+    --clr-key-primary-shadow: hsl(177, 92%, 70%);
+
+    --clr-key-default: hsl(268, 47%, 21%);
+    --clr-key-default-shadow: hsl(290, 70%, 36%);
+
+    /* Text */
+    --clr-text-main: hsl(52, 100%, 62%);
+    --clr-text-secondary: hsl(0, 0%, 100%);
+    --clr-text-extra: hsl(198, 20%, 13%);
+    --clr-text-inverted: hsl(52, 100%, 62%);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: var(--ff-base);
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    font-size: var(--fs-regular);
+    font-weight: var(--fw-regular);
+    line-height: 1;
+    background-color: var(--clr-bg-keypad);
+}
+
+button {
+    font-size: inherit;
+}
+
+main {
+    display: grid;
+}
+
+.calc__wrapper {
+    max-width: 375px;
+    margin: auto;
+    padding: 2.2rem 1.5rem;
+    background-color: var(--clr-bg-main);
+
+    display: grid;
+    gap: 1.4rem;
+}
+
+.calc__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--clr-text-secondary);
+}
+
+.calc__title {
+    font-size: var(--fs-small);
+    color: var(--clr-text-inverted);
+}
+
+/* Theme Switcher */
+
+.theme-switcher {
+    font-size: var(--fs-extra-smaller);
+    color: var(--clr-text-inverted);
+
+    display: flex;
+    align-items: flex-end;
+    gap: 1.4rem;
+}
+
+.theme__labels,
+.theme__radios {
+    display: grid;
+    gap: 1.0rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.theme__labels {
+    padding-left: 0.2rem;
+    gap: 0.8rem;
+}
+
+.theme__radios {
+    gap: 1.0rem;
+    background-color: var(--clr-bg-keypad);
+    border-radius: 2rem;
+    border: 5px solid var(--clr-bg-keypad);
+}
+
+.theme__labels label {
+    text-align: center;
+    padding: 0.3rem 0;
+}
+.theme__labels label,
+.theme__radios input[type="radio"] {
+    width: 1rem;
+}
+
+.theme__radios input[type="radio"] {
+    appearance: none;
+    height: 1rem;
+    border-radius: 100%;
+    aspect-ratio: 1;
+}
+
+.theme__radios input[type="radio"]:checked {
+    background-color: var(--clr-key-primary);
+}
+
+/* Screen */
+
+.calc__screen {
+    font-size: var(--fs-large);
+    width: 100%;
+    border: 0;
+    border-radius: var(--border-radius);
+    text-align: right;
+    padding: 1.6rem 1.0rem 1.0rem 1.0rem;
+    background-color: var(--clr-bg-screen);
+    color: var(--clr-text-inverted);
+}
+
+/* Keys */
+
+.calc__keys-wrapper {
+    background-color: var(--clr-bg-keypad);
+    border-radius: var(--border-radius);
+    width: fit-content;
+    padding: 1.4rem;
+
+    display: grid;
+    gap: 0.8rem;
+    grid-template-columns: repeat(4, 60px);
+    grid-template-rows: repeat(5, 60px);
+}
+
+.key {
+    --font: var(--clr-text-main);
+    --bg: var(--clr-key-default);
+    --shadow: var(--clr-key-default-shadow);
+    color: var(--font);
+    background-color: var(--bg);
+    border: 0;
+    border-radius: var(--border-radius-small);
+    box-shadow: inset 0px -4px var(--shadow);
+}
+
+.key-secondary {
+    --font: var(--clr-text-secondary);
+    --bg: var(--clr-key-secondary);
+    --shadow: var(--clr-key-secondary-shadow);
+    font-size: var(--fs-smaller);
+}
+
+.key-extra {
+    --font: var(--clr-text-extra);
+    --bg: var(--clr-key-primary);
+    --shadow: var(--clr-key-primary-shadow);
+}
+
+.key-large {
+    grid-column: span 2;
+}
