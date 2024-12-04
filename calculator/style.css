@@ -212,7 +212,10 @@ main {
 }
 
 .calc__wrapper {
-    max-width: 375px;
+    --keyw: clamp(60px, 9vw, 102px);
+    --keys-gap: 0.8rem;
+    --keys-padding: 1.4rem;
+
     margin: auto;
     padding: 2.2rem 1.5rem;
     background-color: var(--clr-bg-main);
@@ -286,14 +289,14 @@ main {
 /* Screen */
 
 .calc__screen {
-    font-size: var(--fs-large);
-    width: 100%;
+    width: calc((4 * var(--keyw)) + (3 * var(--keys-gap)) + (2 * var(--keys-padding)));
     border: 0;
     border-radius: var(--border-radius);
     text-align: right;
     padding: 1.6rem 1.0rem 1.0rem 1.0rem;
     background-color: var(--clr-bg-screen);
     color: var(--clr-text-inverted);
+    font-size: var(--fs-large);
 }
 
 /* Keys */
@@ -302,11 +305,11 @@ main {
     background-color: var(--clr-bg-keypad);
     border-radius: var(--border-radius);
     width: fit-content;
-    padding: 1.4rem;
+    padding: var(--keys-padding);
 
     display: grid;
-    gap: 0.8rem;
-    grid-template-columns: repeat(4, 60px);
+    gap: var(--keys-gap);
+    grid-template-columns: repeat(4, var(--keyw));
     grid-template-rows: repeat(5, 60px);
 }
 
@@ -336,4 +339,8 @@ main {
 
 .key-large {
     grid-column: span 2;
+}
+
+footer a {
+    color: var(--clr-text-inverted);
 }
