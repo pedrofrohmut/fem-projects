@@ -117,12 +117,15 @@
 
     /* Keys */
     --clr-key-secondary: hsl(225, 21%, 49%);
+    --clr-key-secondary-hover: hsl(225, 51%, 76%);
     --clr-key-secondary-shadow: hsl(224, 28%, 35%);
 
     --clr-key-primary: hsl(6, 63%, 50%);
+    --clr-key-primary-hover: hsl(6, 63%, 67%);
     --clr-key-primary-shadow: hsl(6, 70%, 34%);
 
     --clr-key-default: hsl(30, 25%, 89%);
+    --clr-key-default-hover: hsl(30, 25%, 100%);
     --clr-key-default-shadow: hsl(28, 16%, 65%);
 
     /* Text */
@@ -145,12 +148,15 @@
 
     /* Keys */
     --clr-key-secondary: hsl(185, 42%, 37%);
+    --clr-key-secondary-hover: hsl(185, 42%, 56%);
     --clr-key-secondary-shadow: hsl(185, 58%, 25%);
 
     --clr-key-primary: hsl(25, 98%, 40%);
+    --clr-key-primary-hover: hsl(25, 98%, 61%);
     --clr-key-primary-shadow: hsl(25, 99%, 27%);
 
     --clr-key-default: hsl(45, 7%, 89%);
+    --clr-key-default-hover: hsl(45, 7%, 100%);
     --clr-key-default-shadow: hsl(35, 11%, 61%);
 
     /* Text */
@@ -170,12 +176,15 @@
 
     /* Keys */
     --clr-key-secondary: hsl(281, 89%, 26%);
+    --clr-key-secondary-hover: hsl(281, 56%, 44%);
     --clr-key-secondary-shadow: hsl(285, 91%, 52%);
 
     --clr-key-primary: hsl(176, 100%, 44%);
+    --clr-key-primary-hover: hsl(177, 100%, 79%);
     --clr-key-primary-shadow: hsl(177, 92%, 70%);
 
     --clr-key-default: hsl(268, 47%, 21%);
+    --clr-key-default-hover: hsl(268, 54%, 44%);
     --clr-key-default-shadow: hsl(290, 70%, 36%);
 
     /* Text */
@@ -316,6 +325,7 @@ main {
 .key {
     --font: var(--clr-text-main);
     --bg: var(--clr-key-default);
+    --bg-hover: var(--clr-key-default-hover);
     --shadow: var(--clr-key-default-shadow);
     color: var(--font);
     background-color: var(--bg);
@@ -324,9 +334,14 @@ main {
     box-shadow: inset 0px -4px var(--shadow);
 }
 
+.key:hover, .key:focus-visible {
+    background-color: var(--bg-hover);
+}
+
 .key-secondary {
     --font: var(--clr-text-secondary);
     --bg: var(--clr-key-secondary);
+    --bg-hover: var(--clr-key-secondary-hover);
     --shadow: var(--clr-key-secondary-shadow);
     font-size: var(--fs-smaller);
 }
@@ -334,6 +349,7 @@ main {
 .key-extra {
     --font: var(--clr-text-extra);
     --bg: var(--clr-key-primary);
+    --bg-hover: var(--clr-key-primary-hover);
     --shadow: var(--clr-key-primary-shadow);
 }
 
