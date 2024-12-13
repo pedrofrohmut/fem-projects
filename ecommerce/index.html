@@ -11,15 +11,48 @@
   <!--My custom styles-->
   <link rel="stylesheet" href="../footer.css" media="all">
   <link rel="stylesheet" href="style.css" media="all">
+
+  <!--My custom scripts-->
+  <script src="./main.js" defer></script>
 </head>
 <body>
 
-  Collections
-  Men
-  Women
-  About
-  Contact
+  <header class="navbar">
+    <!--Navbar left content-->
+    <div class="navbar__start">
+      <button class="navbar__menu-open">
+        <img class="navbar__menu-icon" src="./images/icon-menu.svg" alt="open menu icon">
+      </button>
+      <img src="./images/logo.svg" alt="Sneakers Logo">
+      <h1 class="visually-hidden">Sneakers</h1>
+    </div>
 
+    <!--Navbar middle or hidden content-->
+    <nav class="navbar__nav">
+      <button class="navbar__menu-close">
+        <img src="./images/icon-close.svg" alt="close menu icon">
+      </button>
+      <ul class="navbar__links">
+        <li><a href="#">Collections</a></li>
+        <li><a href="#">Men</a></li>
+        <li><a href="#">Women</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!--Navbar right content-->
+    <div class="navbar__end">
+      <img class="navbar__cart" src="./images/icon-cart.svg" alt="cart">
+      <img class="navbar__avatar"src="./images/image-avatar.png" alt="user avatar">
+    </div>
+  </header>
+
+  <main>
+    TODO: Main content here!
+  </main>
+
+<!--
   Sneaker Company
 
   Fall Limited Edition Sneakers
@@ -33,6 +66,7 @@
 
   0
   Add to cart
+-->
 
   <footer>
     <a href="../index.html">Back to main</a>

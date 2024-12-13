@@ -35,3 +35,190 @@
     - Family: [Kumbh Sans](https://fonts.google.com/specimen/Kumbh+Sans)
     - Weights: 400, 700
 */
+
+:root {
+    --ff-base: "Kumbh Sans", sans-serif;
+
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+    --fs-base: 1rem; /* 16px */
+
+    --clr-primary-600: hsl(26, 100%, 55%);
+    --clr-primary-200: hsl(25, 100%, 94%);
+
+    --clr-neutral-000: hsl(0, 0%, 100%);
+    --clr-neutral-100: hsl(223, 64%, 98%);
+    --clr-neutral-300: hsl(220, 14%, 75%);
+    --clr-neutral-500: hsl(219, 9%, 45%);
+    --clr-neutral-700: hsl(220, 13%, 13%);
+    --clr-neutral-999: hsl(0, 0%, 0%);
+
+    --clr-lightbox-bg: hsla(0, 0%, 0%, 0.75);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+
+    /* From goggle fonts */
+    font-family: var(--ff-base);
+    font-optical-sizing: auto;
+    font-weight: var(--fw-regular);
+    font-style: normal;
+    font-variation-settings: "YOPQ" 300;
+}
+
+html, body {
+    height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+}
+
+body {
+    font-size: var(--fs-regular);
+    font-weight: var(--fw-regular);
+    color: var(--clr-neutral-500);
+    background-color: var(--clr-neutral-000);
+    line-height: 1.4;
+    max-width: 1110px;
+    margin-inline: auto;
+
+    /* Layout: header - main - footer */
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.visually-hidden {
+    height: 1px;
+    width: 1px;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+}
+
+/* Navbar */
+
+.navbar {
+    --mobile-navw: 250px;
+
+    padding: 1.375rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__start {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.navbar__menu-icon {
+    padding: 0.3rem;
+}
+
+.navbar__links a {
+    color: var(--clr-neutral-700);
+    font-weight: var(--fw-bold);
+    text-decoration: none;
+}
+
+.navbar__menu-open,
+.navbar__menu-close {
+    display: none;
+    border: 0;
+    background: none;
+}
+
+.navbar__nav ul {
+    list-style: none;
+}
+
+/* Navbar End / Right */
+.navbar__end {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.navbar__cart {
+    height: 22px;
+}
+
+.navbar__avatar {
+    height: clamp(26px, 5vw, 52px);
+}
+
+/* Media for removing stuff from default styles to make desktop easier */
+@media (max-width: 765px) /* 768 - 1 to avoid conflicts */
+{
+    .navbar__nav {
+        display: none;
+        position: fixed;
+        inset: 0 auto 0 0;
+        background-color: var(--clr-neutral-000);
+        width: var(--mobile-navw);
+        padding: 1.5rem;
+    }
+
+    .navbar__nav::after {
+        content: "";
+        position: absolute;
+        background-color: var(--clr-lightbox-bg);
+        width: calc(100vw - var(--mobile-navw));
+        height: 100%;
+        left: 100%;
+        top: 0;
+    }
+
+    .navbar__nav ul {
+        display: grid;
+        gap: 1.2rem;
+        margin-top: 2.5rem;
+    }
+
+    .navbar__menu-open,
+    .navbar__menu-close {
+        display: block;
+    }
+
+    /* Open navigation when add .menu-open */
+    .menu-open .navbar__nav {
+        display: block;
+    }
+}
+
+@media (min-width: 768px)
+{
+    .navbar {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 3.5rem;
+        align-items: center;
+    }
+
+    .navbar__nav ul {
+        display: flex;
+        gap: 2rem;
+        padding-top: 0.5rem;
+    }
+
+    .navbar__nav a {
+        color: var(--clr-neutral-500);
+        font-weight: var(--fw-regular);
+    }
+
+    .navbar__end {
+        gap: 3rem;
+    }
+}
