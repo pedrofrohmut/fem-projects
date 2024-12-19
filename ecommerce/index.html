@@ -82,11 +82,15 @@
         <span class="product__price-secondary">$250.00</span>
       </div>
       <div class="product__quantity-controls">
-        <img src="./images/icon-minus.svg" alt="">
-        <span>0</span>
-        <img src="./images/icon-plus.svg" alt="">
+        <button class="product__minus btn-icon">
+          <img src="./images/icon-minus.svg" alt="" >
+        </button>
+        <span class="product__quantity">0</span>
+        <button class="product__plus btn-icon">
+          <img src="./images/icon-plus.svg" alt="">
+        </button>
       </div>
-      <button class="btn btn-with-icon btn-primary">
+      <button class="btn btn-with-icon btn-primary product__add-product">
         <svg id="cart-icon" class="btn-icon" width="22" height="20" xmlns="http://www.w3.org/2000/svg">
           <path d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0
           1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0
@@ -102,7 +106,8 @@
 
     <section class="cart__modal">
       <h2 class="cart__title">Cart</h2>
-      <div class="cart__content">Your Cart is empty</div>
+      <hr>
+      <div class="cart__content"></div>
     </section>
   </main>
 
