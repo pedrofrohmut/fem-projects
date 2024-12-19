@@ -43,10 +43,10 @@
     --fw-bold: 700;
 
     --fs-smaller: 0.75rem; /* 13px */
-    --fs-small: 0.9rem;
+    --fs-small: 0.95rem;
     --fs-base: 1rem; /* 16px */
-    --fs-large: 1.75rem;
-    --fs-larger: 1.95rem;
+    --fs-large: 1.65rem;
+    --fs-larger: 1.85rem;
 
     --clr-primary-600: hsl(26, 100%, 55%);
     --clr-primary-200: hsl(25, 100%, 86%);
@@ -138,6 +138,11 @@ p {
     font-weight: var(--fw-bold);
 }
 
+.btn-icon {
+    border: 0;
+    background: none;
+}
+
 .btn-primary {
     background-color: var(--clr-primary-600);
     color: var(--clr-neutral-700);
@@ -174,8 +179,6 @@ p {
 .navbar__menu-open,
 .navbar__menu-close {
     display: none;
-    border: 0;
-    background: none;
 }
 
 .navbar__nav ul {
@@ -207,6 +210,7 @@ p {
         background-color: var(--clr-neutral-000);
         width: var(--mobile-navw);
         padding: 1.5rem;
+        z-index: 999;
     }
 
     .navbar__nav::after {
@@ -217,6 +221,7 @@ p {
         height: 100%;
         left: 100%;
         top: 0;
+        z-index: 999;
     }
 
     .navbar__nav ul {
@@ -266,7 +271,7 @@ p {
 .product__content {
     padding: 1.5rem;
     display: grid;
-    gap: 1rem;
+    gap: 0.9rem;
 }
 
 .product__seller {
@@ -303,6 +308,7 @@ p {
 }
 
 .product__price-discount {
+    font-size: var(--fs-regular);
     background-color: var(--clr-neutral-700);
     color: var(--clr-neutral-000);
     line-height: 1;
@@ -320,20 +326,20 @@ p {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1.2rem;
+    padding: 0.9rem 1.8rem;
 }
 
 .product__quantity-controls img {
-    width: 17px;
+    width: 11px;
 }
 
 .product__quantity-controls span {
-    font-size: var(--fs-large);
+    font-size: var(--fs-regular);
     font-weight: var(--fw-bold);
     color: var(--clr-neutral-700);
 }
 
-/* Slider */
+/* Product Slider */
 
 .product-slider {
     --sliderh: 300px;
@@ -387,4 +393,37 @@ p {
 
 .product-slider__prev img {
     right: var(--icon-pad);
+}
+
+/* Cart modal mobile */
+
+.cart__modal {
+    --pad: 0.4rem;
+    position: absolute;
+    top: 4.9rem;
+    left: var(--pad);
+    width: calc(100vw - (2 * var(--pad)));
+    background-color: var(--clr-neutral-000);
+    padding: 1.4rem;
+    border-radius: 0.5rem;
+    min-height: 255px;
+
+    display: none;
+}
+
+.cart-open .cart__modal {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.cart__title {
+    color: var(--clr-neutral-700);
+    font-size: var(--fs-regular);
+    font-weight: var(--fw-bold);
+}
+
+.cart__content {
+    display: grid;
+    place-content: center;
+    font-weight: var(--fw-bold);
 }

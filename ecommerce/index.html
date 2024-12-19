@@ -20,7 +20,7 @@
   <header class="navbar">
     <!--Navbar left content-->
     <div class="navbar__start">
-      <button class="navbar__menu-open">
+      <button class="navbar__menu-open btn-icon">
         <img class="navbar__menu-icon" src="./images/icon-menu.svg" alt="open menu icon">
       </button>
       <img src="./images/logo.svg" alt="Sneakers Logo">
@@ -29,7 +29,7 @@
 
     <!--Navbar middle or hidden content-->
     <nav class="navbar__nav">
-      <button class="navbar__menu-close">
+      <button class="navbar__menu-close btn-icon">
         <img src="./images/icon-close.svg" alt="close menu icon">
       </button>
       <ul class="navbar__links">
@@ -43,7 +43,9 @@
 
     <!--Navbar right content-->
     <div class="navbar__end">
-      <img class="navbar__cart" src="./images/icon-cart.svg" alt="cart">
+      <button class="navbar__cart btn-icon">
+        <img class="navbar__cart-icon" src="./images/icon-cart.svg" alt="cart">
+      </button>
       <img class="navbar__avatar"src="./images/image-avatar.png" alt="user avatar">
     </div>
   </header>
@@ -98,6 +100,10 @@
       </button>
     </div>
 
+    <section class="cart__modal">
+      <h2 class="cart__title">Cart</h2>
+      <div class="cart__content">Your Cart is empty</div>
+    </section>
   </main>
 
   <footer>

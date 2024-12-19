@@ -1,7 +1,8 @@
+const body = document.querySelector("body")
+
 /*
     Controls for Menu Toggle
 */
-const body = document.querySelector("body")
 const openMenuButton = document.querySelector(".navbar__menu-open")
 const closeMenuButton = document.querySelector(".navbar__menu-close")
 
@@ -11,6 +12,15 @@ openMenuButton.addEventListener("click", () => {
 
 closeMenuButton.addEventListener("click", () => {
     body.classList.remove("menu-open")
+})
+
+/*
+    Controls for the cart modal
+*/
+const btnCart = document.querySelector(".navbar__cart")
+
+btnCart.addEventListener("click", () => {
+    body.classList.toggle("cart-open")
 })
 
 /*
