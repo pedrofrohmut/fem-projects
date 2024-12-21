@@ -42,6 +42,7 @@
     --fw-regular: 400;
     --fw-bold: 700;
 
+    --fs-extra-smaller: 0.65rem;
     --fs-smaller: 0.75rem; /* 13px */
     --fs-small: 0.95rem;
     --fs-base: 1rem; /* 16px */
@@ -198,7 +199,26 @@ strong {
 }
 
 .navbar__cart {
+    --cart-amount: "3";
     height: 22px;
+    position: relative;
+}
+
+.navbar__cart-counter {
+    position: absolute;
+    top: -0.4rem;
+    right: -0.5rem;
+    background-color: var(--clr-primary-600);
+    color: var(--clr-neutral-100);
+    padding: 0.2rem 0.45rem 0.075rem;
+    border-radius: 0.8rem;
+    font-size: var(--fs-extra-smaller);
+    font-weight: var(--fw-bold);
+    display: none;
+}
+
+.navbar__cart.has-items::after {
+    display: block;
 }
 
 .navbar__avatar {

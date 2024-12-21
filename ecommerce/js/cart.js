@@ -1,9 +1,33 @@
+const cartCounter = document.querySelector(".navbar__cart-counter")
+const cartContent = document.querySelector(".cart__content")
+
 /*
     Update Cart Functions
 */
-const setCartEmpty = () => {
-    const cartContent = document.querySelector(".cart__content")
 
+const incrementCartCounter = (amount) => {
+    cartCounter.textContent = Number(cartCounter.textContent) + amount
+    cartCounter.style.display = "block"
+}
+
+const decrementCartCounter = (amount) => {
+    const newAmount = Number(cartCounter.textContent) - amount
+    cartCounter.textContent = newAmount >= 0 ? newAmount : 0
+    if (newAmount == 0) {
+        cartCounter.style.display = "none"
+    }
+}
+
+const setCartCounter = (amount) => {
+    cartCounter.textContent = amount
+    if (amount == 0) {
+        cartCounter.style.display = "none"
+    } else {
+        cartCounter.style.display = "block"
+    }
+}
+
+const setCartEmpty = () => {
     // Clean up modal
     while (cartContent.firstChild) {
         cartContent.removeChild(cartContent.lastChild)
@@ -51,6 +75,7 @@ const addItem = (item, ul) => {
         ul.removeChild(li)
         const updatedItems = JSON.parse(localStorage.getItem("cart")).filter(x => x.id != item.id)
         localStorage.setItem("cart", JSON.stringify(updatedItems))
+        decrementCartCounter(1)
         if (updatedItems.length === 0) {
             setCartEmpty()
         }
@@ -87,58 +112,18 @@ const updateCart = () => {
 
     cartContent.appendChild(ul)
     cartContent.appendChild(checkout)
+
+    setCartCounter(cart.length)
 }
-
-const body = document.querySelector("body")
-
-/*
-    Controls for Menu Toggle
-*/
-const openMenuButton = document.querySelector(".navbar__menu-open")
-const closeMenuButton = document.querySelector(".navbar__menu-close")
-
-openMenuButton.addEventListener("click", () => {
-    body.classList.add("menu-open")
-})
-
-closeMenuButton.addEventListener("click", () => {
-    body.classList.remove("menu-open")
-})
 
 /*
     Controls for the cart modal
 */
 const btnCart = document.querySelector(".navbar__cart")
+const body = document.querySelector("body")
 
 btnCart.addEventListener("click", () => {
     body.classList.toggle("cart-open")
-})
-
-/*
-    Controls for slider on mobile
-*/
-const imageList = document.querySelector(".product-slider__list")
-const btnPrev = document.querySelector(".product-slider__prev")
-const btnNext = document.querySelector(".product-slider__next")
-
-btnPrev.addEventListener("click", () => {
-    const deviceWidth = imageList.offsetWidth
-    const nextShowingWidth = imageList.scrollLeft % deviceWidth
-    const leftToPrev = nextShowingWidth == 0 ? deviceWidth : nextShowingWidth
-    imageList.scrollBy({
-        left: leftToPrev * -1, // Negative to go right
-        behavior: "smooth"
-    })
-})
-
-btnNext.addEventListener("click", () => {
-    const deviceWidth = imageList.offsetWidth
-    const nextShowingWidth = imageList.scrollLeft % deviceWidth
-    const leftToNext = deviceWidth - nextShowingWidth
-    imageList.scrollBy({
-        left: leftToNext,
-        behavior: "smooth"
-    })
 })
 
 /*
@@ -166,6 +151,7 @@ btnAddProduct.addEventListener("click", () => {
     if (qtd < 1) {
         return
     }
+
     const id = Number(localStorage.getItem("currentId") || 0) + 1
     const name = document.querySelector(".product__name").textContent
     const price = Number(document.querySelector(".product__price-primary").textContent.split("$")[1])
@@ -179,6 +165,7 @@ btnAddProduct.addEventListener("click", () => {
     localStorage.setItem("currentId", id)
 
     qtdText.textContent = 0
+    incrementCartCounter(1)
     updateCart()
 })
 
