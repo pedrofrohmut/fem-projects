@@ -565,6 +565,111 @@ strong {
     border-radius: 0.6rem;
 }
 
+/* Product Lightbox */
+
+.lightbox {
+    --focus-w: 550px;
+    --preview-w: 90px;
+    position: fixed;
+    inset: 0 0 0 0;
+    background: var(--clr-lightbox-bg);
+
+    display: none;
+}
+
+.lightbox-open .lightbox {
+    display: grid;
+}
+
+.lightbox__wrapper {
+    margin: auto;
+    position: relative;
+}
+
+.lightbox__close {
+    position: absolute;
+    top: -3.0rem;
+    right: 0rem;
+    color: var(--clr-neutral-200);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 0.75;
+    padding: 0.3rem;
+}
+
+.lightbox__focus-wrapper {
+    position: relative;
+}
+
+.lightbox__focus {
+    width: var(--focus-w);
+    border-radius: 0.9rem;
+}
+
+.lightbox__img {
+    height: var(--preview-w);
+}
+
+.lightbox__next,
+.lightbox__previous {
+    --icon-h: 16px;
+    --icon-pad: 0.15rem;
+    border-radius: 100%;
+    aspect-ratio: 1;
+    border: 1px solid var(--clr-neutral-300);
+    padding: 1.2rem 1.4rem;
+    position: absolute;
+    top: 50%;
+}
+
+.lightbox__next {
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.lightbox__previous {
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.lightbox__next img,
+.lightbox__previous img {
+    position: relative;
+    height: var(--icon-h);
+}
+
+.lightbox__previous img {
+    right: var(--icon-pad);
+}
+
+.lightbox__next img {
+    left: var(--icon-pad);
+}
+
+.lightbox__list {
+    margin-top: 2.3rem;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.lightbox__img-wrapper {
+    border-radius: 0.9rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.lightbox__img-wrapper.active {
+    outline: 3px solid var(--clr-primary-600);
+}
+
+.lightbox__img-wrapper.active::after {
+    content: "";
+    position: absolute;
+    inset: 0 0 0 0;
+    background-color: hsl(0, 0%, 100%, 0.7);
+}
+
 @media (max-width: 767px)
 {
     .product-gallery {
@@ -594,19 +699,8 @@ strong {
         display: none;
     }
 
-    /* Product Content / Form */
-
     .product__content {
         gap: 1.4rem;
-    }
-
-    .product__seller {
-    }
-
-    .product__name {
-    }
-
-    .product__description {
     }
 
     .product__prices {
