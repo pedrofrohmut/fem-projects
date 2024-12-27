@@ -52,10 +52,19 @@
 
     <!--Navbar right content-->
     <div class="navbar__end">
-      <button class="navbar__cart btn-icon">
-        <img class="navbar__cart-icon" src="./images/icon-cart.svg" alt="cart">
-        <span class="navbar__cart-counter">0</span>
-      </button>
+      <div class="cart__wrapper">
+        <button class="navbar__cart btn-icon">
+          <img class="navbar__cart-icon" src="./images/icon-cart.svg" alt="cart">
+          <span class="navbar__cart-counter">0</span>
+        </button>
+
+        <!--Cart Modal-->
+        <section class="cart__modal">
+          <h2 class="cart__title">Cart</h2>
+          <hr>
+          <div class="cart__content"></div>
+        </section>
+      </div>
       <img class="navbar__avatar"src="./images/image-avatar.png" alt="user avatar">
     </div>
   </header>
@@ -174,11 +183,6 @@
       </div>
     </div>
 
-    <section class="cart__modal">
-      <h2 class="cart__title">Cart</h2>
-      <hr>
-      <div class="cart__content"></div>
-    </section>
   </main>
 
   <footer>
