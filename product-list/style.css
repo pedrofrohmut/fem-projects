@@ -32,12 +32,108 @@
     - Weights: 400, 600, 700
 */
 
+:root {
+    /* Font */
+    --ff-base: "Red Hat Text", serif;
+    --fw-regular: 400;
+    --fw-bold: 600;
+    --fw-bolder: 700;
+    --fs-small: 0.875rem;
+    --fs-base: 1rem; /* Always use rems for font sizes */
+    --fs-title: 2.5rem;
+
+    /* Colors */
+    --clr-primary: hsl(14, 86%, 42%);
+    --clr-success: hsl(159, 69%, 38%);
+    --clr-neutral-000: hsl(0, 0%, 100%);
+    --clr-neutral-50: hsl(20, 50%, 98%);
+    --clr-neutral-100: hsl(13, 31%, 94%);
+    --clr-neutral-300: hsl(14, 25%, 72%);
+    --clr-neutral-400: hsl(7, 20%, 60%);
+    --clr-neutral-500: hsl(12, 20%, 44%);
+    --clr-neutral-900: hsl(14, 65%, 9%);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1;
+}
+
+picture, img {
+    display: block;
+    max-width: 100%;
+}
+
 *, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--ff-base);
+    font-optical-sizing: auto;
+    font-weight: var(--fw-regular);
+    font-style: normal;
 }
 
 html, body {
     height: 100%;
+}
+
+body {
+    font-size: var(--fs-base);
+    font-weight: var(--fw-regular);
+    line-height: 1.3;
+    background-color: var(--clr-neutral-50);
+    color: var(--clr-neutral-900);
+}
+
+main {
+    width: calc(100% - 3rem);
+    margin-inline: auto;
+}
+
+.main-title {
+    padding: 2rem 0;
+    font-weight: var(--fw-bolder);
+    font-size: var(--fs-title);
+}
+
+.items-container {
+    display: grid;
+    gap: 1.8rem;
+}
+
+.item-card__image {
+    border-radius: 0.4rem;
+}
+
+.item-card__button {
+    --fill: var(--clr-primary);
+    display: block;
+    margin-inline: auto;
+    transform: translateY(-50%);
+    padding: 0.7rem 1.8rem;
+    border-radius: 5rem;
+    border: 1px solid var(--clr-neutral-500);
+    background-color: var(--clr-neutral-000);
+    font-weight: var(--fw-bold);
+
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.item-card__type {
+    margin-top: -0.9rem;
+    color: var(--clr-neutral-500);
+    font-size: var(--fs-small);
+}
+
+.item-card__name {
+    font-weight: var(--fw-bold);
+    line-height: 1.7;
+}
+
+.item-card__price {
+    color: var(--clr-primary);
+    font-weight: var(--fw-bold);
 }
