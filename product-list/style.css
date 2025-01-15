@@ -38,8 +38,10 @@
     --fw-regular: 400;
     --fw-bold: 600;
     --fw-bolder: 700;
+    /* Always use rems for font sizes */
     --fs-small: 0.875rem;
-    --fs-base: 1rem; /* Always use rems for font sizes */
+    --fs-base: 1rem;
+    --fs-large: 1.45rem;
     --fs-title: 2.5rem;
 
     /* Colors */
@@ -52,6 +54,8 @@
     --clr-neutral-400: hsl(7, 20%, 60%);
     --clr-neutral-500: hsl(12, 20%, 44%);
     --clr-neutral-900: hsl(14, 65%, 9%);
+
+    --card-border-radius: 0.4rem;
 }
 
 
@@ -103,7 +107,7 @@ main {
 }
 
 .item-card__image {
-    border-radius: 0.4rem;
+    border-radius: var(--card-border-radius);
 }
 
 .item-card__button {
@@ -136,4 +140,31 @@ main {
 .item-card__price {
     color: var(--clr-primary);
     font-weight: var(--fw-bold);
+}
+
+/* Cart */
+.cart {
+    background-color: var(--clr-neutral-000);
+    border-radius: var(--card-border-radius);
+    padding: 1.8rem 1.4rem;
+
+    display: grid;
+    gap: 1.2rem;
+}
+
+.cart__title {
+    color: var(--clr-primary);
+    font-weight: var(--fw-bolder);
+    font-size: var(--fs-large);
+}
+
+.cart__img {
+    margin-inline: auto;
+}
+
+.cart__message {
+    color: var(--clr-neutral-500);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-small);
+    text-align: center;
 }
