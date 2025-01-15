@@ -104,6 +104,7 @@ main {
 .items-container {
     display: grid;
     gap: 1.8rem;
+    margin-block-end: 2rem;
 }
 
 .item-card__image {
@@ -126,7 +127,7 @@ main {
     gap: 0.7rem;
 }
 
-.item-card__type {
+.item-card__category {
     margin-top: -0.9rem;
     color: var(--clr-neutral-500);
     font-size: var(--fs-small);

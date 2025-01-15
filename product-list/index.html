@@ -16,190 +16,71 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300..700&display=swap" rel="stylesheet">
+
+  <!-- Handlebars template engine -->
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
 </head>
 <body>
 
   <main>
     <h1 class="main-title">Desserts</h1>
 
-    <div class="items-container">
+    <div id="items-container" class="items-container">
+    </div> <!-- items-container -->
 
-      <!--Waffle-->
-      <div class="item-card">
-        <div>
-          <picture>
-            <source srcset="./assets/images/image-waffle-tablet.jpg" media="(min-width: 480px)" />
-            <source srcset="./assets/images/image-waffle-desktop.jpg" media="(min-width: 768px)" />
-            <img class="item-card__image" src="./assets/images/image-waffle-mobile.jpg" alt="">
-          </picture>
-          <button class="item-card__button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
-            Add to Cart
-          </button>
+    <script id="items-template" type="text/x-handlebars-template">
+      {{#each products}}
+        <div class="item-card">
+          <div class="item-card__img-wrapper">
+            <picture>
+              <source srcset="{{ image.tablet }}" media="(min-width: 480px)" />
+              <source srcset="{{ image.desktop }}" media="(min-width: 768px)" />
+              <img class="item-card__image" src="{{ image.mobile }}" alt="">
+            </picture>
+            <button class="item-card__button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
+              Add to Cart
+            </button>
+          </div>
+          <div class="item-card__category">{{ category }}</div>
+          <div class="item-card__name">{{ name }}</div>
+          <div class="item-card__price">${{ price }}</div>
         </div>
-        <div class="item-card__type">Waffle</div>
-        <div class="item-card__name">Waffle with Berries</div>
-        <div class="item-card__price">$6.50</div>
-      </div>
+      {{/each}}
+    </script>
 
-      <!--Creme Brulee-->
-      <div class="item-card">
-        <div>
-          <picture>
-            <source srcset="./assets/images/image-creme-brulee-tablet.jpg" media="(min-width: 480px)" />
-            <source srcset="./assets/images/image-creme-brulee-desktop.jpg" media="(min-width: 768px)" />
-            <img class="item-card__image" src="./assets/images/image-creme-brulee-mobile.jpg" alt="">
-          </picture>
-          <button class="item-card__button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
-            Add to Cart
-          </button>
-        </div>
-        <div class="item-card__type">Crème Brûlée</div>
-        <div class="item-card__name">Vanilla Bean Crème Brûlée</div>
-        <div class="item-card__price">$7.00</div>
-      </div>
-
-      <!--Macaron-->
-      <div class="item-card">
-        <div>
-          <picture>
-            <source srcset="./assets/images/image-macaron-tablet.jpg" media="(min-width: 480px)" />
-            <source srcset="./assets/images/image-macaron-desktop.jpg" media="(min-width: 768px)" />
-            <img class="item-card__image" src="./assets/images/image-macaron-mobile.jpg" alt="">
-          </picture>
-          <button class="item-card__button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
-            Add to Cart
-          </button>
-        </div>
-        <div class="item-card__type">Macaron</div>
-        <div class="item-card__name">Macaron Mix of Five</div>
-        <div class="item-card__price">$8.00</div>
-      </div>
-
-      <!--Tiramisu-->
-      <div class="item-card">
-        <div>
-          <picture>
-            <source srcset="./assets/images/image-tiramisu-tablet.jpg" media="(min-width: 480px)" />
-            <source srcset="./assets/images/image-tiramisu-desktop.jpg" media="(min-width: 768px)" />
-            <img class="item-card__image" src="./assets/images/image-tiramisu-mobile.jpg" alt="">
-          </picture>
-          <button class="item-card__button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
-            Add to Cart
-          </button>
-        </div>
-        <div class="item-card__type">Tiramisu</div>
-        <div class="item-card__name">Classic Tiramisu</div>
-        <div class="item-card__price">$5.50</div>
-      </div>
-
-      <!--Baklava-->
-      <div class="item-card">
-        <div>
-          <picture>
-            <source srcset="./assets/images/image-baklava-tablet.jpg" media="(min-width: 480px)" />
-            <source srcset="./assets/images/image-baklava-desktop.jpg" media="(min-width: 768px)" />
-            <img class="item-card__image" src="./assets/images/image-baklava-mobile.jpg" alt="">
-          </picture>
-          <button class="item-card__button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
-            Add to Cart
-          </button>
-        </div>
-        <div class="item-card__type">Baklava</div>
-        <div class="item-card__name">Pistachio Baklava</div>
-        <div class="item-card__price">$4.00</div>
-      </div>
-
-      <!--Pie-->
-      <div class="item-card">
-        <div>
-          <picture>
-            <source srcset="./assets/images/image-meringue-tablet.jpg" media="(min-width: 480px)" />
-            <source srcset="./assets/images/image-meringue-desktop.jpg" media="(min-width: 768px)" />
-            <img class="item-card__image" src="./assets/images/image-meringue-mobile.jpg" alt="">
-          </picture>
-          <button class="item-card__button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
-            Add to Cart
-          </button>
-        </div>
-        <div class="item-card__type">Pie</div>
-        <div class="item-card__name">Lemon Meringue Pie</div>
-        <div class="item-card__price">$5.00</div>
-      </div>
-
-      <!--Cake-->
-      <div class="item-card">
-        <div>
-          <picture>
-            <source srcset="./assets/images/image-meringue-tablet.jpg" media="(min-width: 480px)" />
-            <source srcset="./assets/images/image-meringue-desktop.jpg" media="(min-width: 768px)" />
-            <img class="item-card__image" src="./assets/images/image-meringue-mobile.jpg" alt="">
-          </picture>
-          <button class="item-card__button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
-            Add to Cart
-          </button>
-        </div>
-        <div class="item-card__type">Cake</div>
-        <div class="item-card__name">Red Velvet Cake</div>
-        <div class="item-card__price">$4.50</div>
-      </div>
-
-      <!--Cake-->
-      <div class="item-card">
-        <div>
-          <picture>
-            <source srcset="./assets/images/image-brownie-tablet.jpg" media="(min-width: 480px)" />
-            <source srcset="./assets/images/image-brownie-desktop.jpg" media="(min-width: 768px)" />
-            <img class="item-card__image" src="./assets/images/image-brownie-mobile.jpg" alt="">
-          </picture>
-          <button class="item-card__button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
-            Add to Cart
-          </button>
-        </div>
-        <div class="item-card__type">Brownie</div>
-        <div class="item-card__name">Salted Caramel Brownie</div>
-        <div class="item-card__price">$4.50</div>
-      </div>
-
-      <!--Cake-->
-      <div class="item-card">
-        <div>
-          <picture>
-            <source srcset="./assets/images/image-panna-cotta-tablet.jpg" media="(min-width: 480px)" />
-            <source srcset="./assets/images/image-panna-cotta-desktop.jpg" media="(min-width: 768px)" />
-            <img class="item-card__image" src="./assets/images/image-panna-cotta-mobile.jpg" alt="">
-          </picture>
-          <button class="item-card__button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="20" fill="none" viewBox="0 0 21 20"><g fill="var(--fill, #C73B0F)" clip-path="url(#a)"><path d="M6.583 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM15.334 18.75a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5ZM3.446 1.752a.625.625 0 0 0-.613-.502h-2.5V2.5h1.988l2.4 11.998a.625.625 0 0 0 .612.502h11.25v-1.25H5.847l-.5-2.5h11.238a.625.625 0 0 0 .61-.49l1.417-6.385h-1.28L16.083 10H5.096l-1.65-8.248Z"/><path d="M11.584 3.75v-2.5h-1.25v2.5h-2.5V5h2.5v2.5h1.25V5h2.5V3.75h-2.5Z"/></g><defs><clipPath id="a"><path fill="#fff" d="M.333 0h20v20h-20z"/></clipPath></defs></svg>
-            Add to Cart
-          </button>
-        </div>
-        <div class="item-card__type">Panna Cotta</div>
-        <div class="item-card__name">Vanilla Panna Cotta</div>
-        <div class="item-card__price">$6.50</div>
-      </div>
-
-      <!-- Empty Cart -->
-      <div class="cart cart-empty">
-        <div class="cart__title">Your Cart (0)</div>
-        <img class="cart__img" src="./assets/images/illustration-empty-cart.svg" alt="">
-        <div class="cart__message">Your added items will appear here</div>
-      </div>
-
-      <!-- TODO: Make the filled cart -->
+    <!-- Empty Cart -->
+    <div class="cart cart-empty">
+      <div class="cart__title">Your Cart (0)</div>
+      <img class="cart__img" src="./assets/images/illustration-empty-cart.svg" alt="">
+      <div class="cart__message">Your added items will appear here</div>
     </div>
+
+    <!-- TODO: Make the filled cart -->
   </main>
 
   <footer>
     <a href="../index.html">Back to main</a>
   </footer>
+
+  <!-- Script to render the template -->
+  <script>
+    fetch("./data.json")
+      .then(response => response.json())
+      .then(products => {
+        products.forEach(product => product.price = product.price.toFixed(2))
+
+        // Select the template script and compile it
+        const templateSource = document.getElementById("items-template").innerHTML;
+        const template = Handlebars.compile(templateSource);
+
+        // Render the template with the data
+        const renderedHtml = template({ products });
+
+        // Insert the rendered HTML into the DOM
+        document.getElementById("items-container").innerHTML = renderedHtml;
+      })
+  </script>
 
 </body>
 </html>
