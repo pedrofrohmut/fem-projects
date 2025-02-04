@@ -58,6 +58,7 @@
     --card-border-radius: 0.4rem;
 }
 
+/* General Styles */
 
 h1, h2, h3, h4, h5, h6 {
     line-height: 1;
@@ -109,23 +110,76 @@ main {
 
 .item-card__image {
     border-radius: var(--card-border-radius);
+    border: 2px solid transparent;
 }
 
-.item-card__button {
-    --fill: var(--clr-primary);
-    display: block;
+.selected .item-card__image {
+    border: 2px solid var(--clr-primary);
+}
+
+.item-card__button-not-selected,
+.item-card__button-selected {
     margin-inline: auto;
     transform: translateY(-50%);
-    padding: 0.7rem 1.8rem;
-    border-radius: 5rem;
-    border: 1px solid var(--clr-neutral-500);
-    background-color: var(--clr-neutral-000);
-    font-weight: var(--fw-bold);
+    padding: 0.6rem 1.8rem;
+    border-radius: 6rem;
+    width: 170px;
+    font-size: var(--fs-small);
 
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 0.7rem;
 }
+
+.item-card__button-not-selected {
+    --fill: var(--clr-primary);
+    border: 1px solid var(--clr-neutral-500);
+    background-color: var(--clr-neutral-000);
+}
+
+.item-card__button-not-selected span,
+.item-card__button-selected span {
+    font-weight: var(--fw-bold);
+}
+
+.item-card__button-selected span {
+    font-size: 16px;
+}
+
+.item-card__button-selected {
+    display: none;
+    padding-inline: 0.8rem;
+    border: 1px solid var(--clr-primary);
+    background-color: var(--clr-primary);
+    color: var(--clr-neutral-100);
+}
+
+.item-card__button-selected button {
+    height: 23px;
+    width: 23px;
+    border: 1px solid var(--clr-neutral-100);
+    border-radius: 100%;
+    background: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-card__button-selected svg {
+    height: 13px;
+    width: 13px;
+}
+
+.selected .item-card__button-not-selected {
+    display: none;
+}
+
+.selected .item-card__button-selected {
+    display: flex;
+}
+
 
 .item-card__category {
     margin-top: -0.9rem;
