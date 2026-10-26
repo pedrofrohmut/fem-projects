@@ -31,6 +31,8 @@
 */
 
 :root {
+    font-size: 15px;
+
     --clr-neutral-000: hsl(0, 0%, 100%);
     --clr-neutral-200: hsl(212, 45%, 89%);
     --clr-neutral-300: hsl(213, 6%, 65%);
@@ -85,7 +87,14 @@ p {
     margin-block: 0.4em;
 }
 
+body {
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
 main {
+    flex: 1;
     display: flex;
 }
 
@@ -95,25 +104,26 @@ main {
     border-radius: 1.3rem;
     box-shadow: 0.4rem 0.4rem 8.0rem -4.0rem var(--clr-neutral-500);
     margin: auto;
-    padding: 1rem;
+    padding: 17px;
 }
 
 .card img {
-    border-radius: 0.8rem;
+    border-radius: 0.6rem;
 }
 
 .card .content {
     text-align: center;
-    padding: 1.5rem 1rem;
+    padding: 28px 20px;
 }
 
 .card h1 {
-    font-size: var(--fs-title);
+    font-size: 22px;
     line-height: 1.2;
     color: var(--clr-neutral-900);
     margin-bottom: 1.0rem;
 }
 
 .card p {
+    font-size: 15px;
     line-height: 1.4;
 }
