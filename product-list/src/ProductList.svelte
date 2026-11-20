@@ -1,7 +1,12 @@
-<script>
+<script lang="ts">
+  import type { Product } from "./types.ts"
   import { fixPrice } from "./utils"
 
-  const { products } = $props()
+  type Props = {
+    products: Array<Product>
+  }
+
+  const { products }: Props = $props()
 </script>
 
 <div class="product-list">
