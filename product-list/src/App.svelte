@@ -1,29 +1,29 @@
 <script>
   import products from "../data.json"
+
+  import ProductList from "./ProductList.svelte"
 </script>
 
-<h1>Desserts</h1>
-
-{#each products as product}
-
-  <div class="product-card">
-    <picture>
-      <source media="(width <= 480px)" srcset={product.image.mobile} />
-      <source media="(width > 480px) and (width <= 800px)" srcset={product.image.tablet} />
-      <img alt={product.name} src={product.image.desktop} />
-    </picture>
-
-    <button class="product-btn">
-      <img alt="add to cart icon" src="assets/images/icon-add-to-cart.svg"/>
-      Add to Cart
-    </button>
-
-    <div class="product-category">{product.category}</div>
-    <div class="product-name">{product.name}</div>
-    <div class="product-price">$ {product.price}</div>
+<div class="page-container">
+  <div class="products-container">
+    <div class="products-title">Desserts</div>
+    <ProductList {products} />
   </div>
-
-{/each}
+</div>
 
 <style>
+.page-container {
+    margin: 2.5rem auto 5rem;
+    max-width: 1200px;
+}
+
+.products-title {
+    font-size: 2.5rem;
+    font-weight: var(--fw-bolder);
+    margin-bottom: 2.5rem;
+}
+
+.products-container {
+    max-width: 800px;
+}
 </style>

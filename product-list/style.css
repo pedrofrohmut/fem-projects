@@ -1,4 +1,5 @@
 :root {
+    /* Guide Colors */
     --clr-red: hsl(14, 86%, 42%);
     --clr-green: hsl(159, 69%, 38%);
     --clr-rose-50: hsl(20, 50%, 98%);
@@ -8,18 +9,38 @@
     --clr-rose-500: hsl(12, 20%, 44%);
     --clr-rose-900: hsl(14, 65%, 9%);
 
+    /* Custom Colors */
+    --clr-rose-600: hsl(12, 20%, 34%);
+    --clr-rose-700: hsl(12, 20%, 24%);
+    --clr-light-gray: #8c817f;
+    --clr-dark-gray: #100702;
+
     --ff-main: "Red Hat Text", sans-serif;
 
+    --fs-regular: 0.93rem;
+    --fs-small: 0.83rem;
+
+    --fw-regular: 400;
+    --fw-bold: 600;
+    --fw-bolder: 700;
+
     font-size: 16px;
+    color: var(--clr-dark-gray);
     letter-spacing: 0.18px;
     line-height: 1.25;
     font-family: var(--ff-main);
-    font-weight: 400;
+    font-weight: var(--fw-regular);
     font-style: normal;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
 }
 
 body {
-    margin: 0;
+    margin: 0 auto;
+    background-color: var(--clr-rose-100);
+}
+
+img {
+    position: relative;
+    max-width: 100%;
 }
