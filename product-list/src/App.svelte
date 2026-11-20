@@ -13,7 +13,8 @@
 
 <style>
 .page-container {
-    margin: 2.5rem auto 5rem;
+    margin: 0 auto;
+    padding: 2.5rem 0 5rem;
     max-width: 1200px;
 }
 
