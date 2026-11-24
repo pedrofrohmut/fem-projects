@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 :root {
     /* Guide Colors */
     --clr-red: hsl(14, 86%, 42%);

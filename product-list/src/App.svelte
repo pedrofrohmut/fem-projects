@@ -55,7 +55,7 @@
   }
 </script>
 
-<pre>{JSON.stringify(cart, null, 2)}</pre>
+<!-- <pre>{JSON.stringify(cart, null, 2)}</pre> -->
 
 <div class="page-container">
   <div class="products-container">
