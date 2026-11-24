@@ -6,19 +6,61 @@
   import ProductList from "./ProductList.svelte"
   import Cart from "./Cart.svelte"
 
-  const products: Array<Product> = productsData.map((product, i) => Object.assign(product, { id: i + 1 }))
+  const products = productsData.map((product, i) => ({ ...product, id: i + 1 })) as Array<Product>
 
   const initialCart = {
     amount: 0,
     items: [],
   }
+
   let cart = $state(initialCart)
+
+  const handleAddToCart = (product) => {
+    if (product.amount >= 99) return
+
+    cart.amount += 1
+
+    // Increment existing item
+    const productInCart = cart.items.some(item => item.id === product.id)
+    if (productInCart) {
+      cart.items = cart.items.map(item =>
+        item.id !== product.id ? item : { ...item, amount: item.amount + 1 }
+      )
+      return
+    }
+
+    // Add new item
+    const { id, name, price, amount } = product
+    cart.items = cart.items.concat({ id, name, amount: amount + 1, price })
+  }
+
+  const handleRemoveFromCart = (product) => {
+    const productInCart = cart.items.some(item => item.id === product.id)
+
+    if (!productInCart) return
+
+    cart.amount -= 1
+
+    cart.items = cart.items.reduce((acc, curr) => {
+      if (curr.id !== product.id) {
+        return acc.concat(curr)
+      }
+
+      if (curr.amount > 1) {
+        return acc.concat({ ...curr, amount: curr.amount - 1 })
+      }
+
+      return acc
+    }, [])
+  }
 </script>
+
+<pre>{JSON.stringify(cart, null, 2)}</pre>
 
 <div class="page-container">
   <div class="products-container">
     <div class="products-title">Desserts</div>
-    <ProductList {products} />
+    <ProductList {products} {cart} {handleAddToCart} {handleRemoveFromCart} />
   </div>
   <Cart {cart} />
 </div>

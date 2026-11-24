@@ -1,16 +1,25 @@
 <script lang="ts">
-  import type { Product } from "./types.ts"
+  import type { Product, Cart } from "./types.ts"
   import { fixPrice } from "./utils"
 
   type Props = {
     products: Array<Product>
+    cart: Cart
   }
 
-  const { products }: Props = $props()
+  const { products, cart, handleAddToCart, handleRemoveFromCart }: Props = $props()
+
+  let productsWithAmount = $derived.by(() => products.map(product => {
+    const item = cart.items.find(item => item.id === product.id)
+    const amount = item !== undefined ? item.amount : 0
+    return { ...product, amount }
+  }))
 </script>
 
+<!-- <pre>{JSON.stringify(productsWithAmount, null, 2)}</pre> -->
+
 <div class="product-list">
-  {#each products as product}
+  {#each productsWithAmount as product}
 
     <div class="product-card">
       <div class="product-img-container">
@@ -20,10 +29,18 @@
           <img alt={product.name} src={product.image.desktop} />
         </picture>
 
-        <button class="product-btn">
-          <img alt="add to cart icon" src="assets/images/icon-add-to-cart.svg"/>
-          Add to Cart
-        </button>
+        {#if product.amount === 0}
+          <button class="product-btn" onclick={() => handleAddToCart(product)}>
+            <img alt="add to cart icon" src="assets/images/icon-add-to-cart.svg"/>
+            Add to Cart
+          </button>
+        {:else}
+          <div class="amount-btn">
+            <button onclick={() => handleRemoveFromCart(product)}>-</button>
+            {product.amount}
+            <button onclick={() => handleAddToCart(product)}>+</button>
+          </div>
+        {/if}
       </div>
 
       <div class="product-category">{product.category}</div>
@@ -69,6 +86,7 @@
     border-radius: 999px;
     background-color: white;
     width: 150px;
+    cursor: pointer;
 
     position: absolute;
     top: calc(100% - 25px);

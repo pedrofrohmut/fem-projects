@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import type { Cart, Items } from "./types"
 
   type Props = {
