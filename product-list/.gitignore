@@ -27,3 +27,5 @@ dist-ssr
 *.sketch
 *.fig
 *.xd
+
+package-lock.json
